@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "fabrictweaker",
+  "version": "${version}",
+  "name": "FabricTweaker",
+  "description": "A client-side tweak mod that adds some useful feature to 1.20.2 client.",
+  "authors": [
+    "Crazy_H"
+  ],
+  "contact": {
+    "website": "https://github.com/CrazyHPi/fabricTweaker",
+    "repo": "https://github.com/CrazyHPi/FabricTweaker"
+  },
+  "license": "LGPL-3.0",
+  "icon": "assets/fabrictweaker/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "xyz.crazyh.fabrictweaker.client.FabricTweakerClient"
+    ],
+    "main": [
+      "xyz.crazyh.fabrictweaker.FabricTweaker"
+    ]
+  },
+  "mixins": [
+    "fabrictweaker.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}"
+  }
+}
