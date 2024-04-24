@@ -15,9 +15,6 @@
   "icon": "assets/fabrictweaker/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "xyz.crazyh.fabrictweaker.client.FabricTweakerClient"
-    ],
     "main": [
       "xyz.crazyh.fabrictweaker.FabricTweaker"
     ]
