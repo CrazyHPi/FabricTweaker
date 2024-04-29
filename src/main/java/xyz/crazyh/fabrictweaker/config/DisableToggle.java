@@ -16,6 +16,9 @@ import fi.dy.masa.malilib.util.StringUtils;
 import xyz.crazyh.fabrictweaker.FabricTweaker;
 
 public enum DisableToggle implements IHotkeyTogglable, IConfigNotifiable<IConfigBoolean> {
+    //todo
+    // disable block breaking cooldown
+    DISABLE_BLOCK_BREAKING_COOLDOWN("Disable Block Breaking Cooldown", false, "Remove 5gt delay between breaking two non-instant mined block")
     ;
     public static final ImmutableList<DisableToggle> VALUES = ImmutableList.copyOf(values());
 

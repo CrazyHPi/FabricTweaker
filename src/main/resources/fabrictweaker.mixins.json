@@ -6,6 +6,10 @@
   "mixins": [
   ],
   "client": [
+    "Disables.disableBlockBreakingCooldown.ClientPlayerInteractionManagerMixin",
+    "Tweaks.additionalBlockBreakingCooldown.ClientPlayerInteractionManagerMixin",
+    "Tweaks.preventDigBelow.ClientPlayerInteractionManagerMixin",
+    "Tweaks.stepUp.ClientPlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
