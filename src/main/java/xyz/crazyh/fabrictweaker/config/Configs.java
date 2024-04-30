@@ -19,6 +19,7 @@ public class Configs implements IConfigHandler {
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of();
     }
+
     public static class Lists {
 
 
@@ -35,9 +36,13 @@ public class Configs implements IConfigHandler {
 
                 ConfigUtils.readConfigBase(root, "General", General.OPTIONS);
                 ConfigUtils.readConfigBase(root, "Lists", Lists.OPTIONS);
+                ConfigUtils.readConfigBase(root, "HotKeys", Hotkeys.HOTKEY_LIST);
+                ConfigUtils.readHotkeyToggleOptions(root, "TweakHotkeys", "Tweaks", FeatureToggle.VALUES);
+                ConfigUtils.readHotkeyToggleOptions(root, "DisableHotkeys", "Disables", DisableToggle.VALUES);
             }
         }
     }
+
     public static void saveToFile() {
         File dir = FileUtils.getConfigDirectory();
         if ((dir.exists() && dir.isDirectory()) || dir.mkdirs()) {
@@ -45,6 +50,9 @@ public class Configs implements IConfigHandler {
 
             ConfigUtils.writeConfigBase(root, "General", General.OPTIONS);
             ConfigUtils.writeConfigBase(root, "Lists", Lists.OPTIONS);
+            ConfigUtils.writeConfigBase(root, "HotKeys", Hotkeys.HOTKEY_LIST);
+            ConfigUtils.writeHotkeyToggleOptions(root, "TweakHotkeys", "Tweaks", FeatureToggle.VALUES);
+            ConfigUtils.writeHotkeyToggleOptions(root, "DisableHotkeys", "Disables", DisableToggle.VALUES);
 
             JsonUtils.writeJsonToFile(root, new File(dir, CONFIG_FILE_NAME));
         }
