@@ -55,7 +55,9 @@ public class Configs implements IConfigHandler {
                 ConfigUtils.readHotkeyToggleOptions(root, "DisableHotkeys", "Disables", DisableToggle.VALUES);
             }
         }
+    }
 
+    public static void updateLists() {
         InventoryUtils.ITEM_DROP_LIST.setListType((UsageRestriction.ListType) Lists.DROP_INV_LIST_TYPE.getOptionListValue());
         InventoryUtils.ITEM_DROP_LIST.setListContents(
                 Lists.DROP_INV_BLACKLIST.getStrings(),
@@ -81,6 +83,7 @@ public class Configs implements IConfigHandler {
     @Override
     public void load() {
         loadFromFile();
+        updateLists();
     }
 
     @Override
