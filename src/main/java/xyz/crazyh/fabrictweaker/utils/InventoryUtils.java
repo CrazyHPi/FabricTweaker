@@ -1,5 +1,7 @@
 package xyz.crazyh.fabrictweaker.utils;
 
+import fi.dy.masa.malilib.gui.Message;
+import fi.dy.masa.malilib.util.InfoUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -46,6 +48,8 @@ public class InventoryUtils {
                 interactionManager.clickSlot(0, i, 1, SlotActionType.THROW, player);
             }
         }
+
+        InfoUtils.showGuiOrActionBarMessage(Message.MessageType.INFO, "fabrictweaker.message.dropinv");
     }
 
     // might be useful, who knows

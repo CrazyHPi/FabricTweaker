@@ -5,5 +5,7 @@
   "fabrictweaker.gui.button.config_gui.disables": "Disables",
   "fabrictweaker.gui.button.config_gui.hotkeys": "Hotkeys",
 
-  "fabrictweaker.gui.title.configs": "Fabric Tweaker - %s"
+  "fabrictweaker.gui.title.configs": "Fabric Tweaker - %s",
+
+  "fabrictweaker.message.dropinv": "Dropping Inventory..."
 }
