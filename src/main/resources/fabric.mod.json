@@ -17,6 +17,9 @@
   "entrypoints": {
     "main": [
       "xyz.crazyh.fabrictweaker.FabricTweaker"
+    ],
+    "modmenu": [
+      "xyz.crazyh.fabrictweaker.compact.modmenu.ModMenuImpl"
     ]
   },
   "mixins": [
