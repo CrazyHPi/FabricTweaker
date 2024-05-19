@@ -37,17 +37,20 @@ public class WCItemRestriction extends ItemRestriction {
         if (getWCStringForType(type).isEmpty()) {
             return super.isAllowed(item);
         }
+        if (type == ListType.NONE) {
+            return true;
+        }
 
         String itemName = item.toString();
-        boolean result = false;
+        boolean result;
         for (String s : getWCStringForType(type)) {
             if (itemName.matches(s)) {
-                result = true;
-                break;
+                result = type == ListType.WHITELIST;
+                return result;
             }
         }
 
-        return result || super.isAllowed(item);
+        return super.isAllowed(item);
     }
 
     public Set<String> getWCStringForType(ListType type) {
