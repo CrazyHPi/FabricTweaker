@@ -18,8 +18,7 @@ import xyz.crazyh.fabrictweaker.FabricTweaker;
 public enum FeatureToggle implements IHotkeyTogglable, IConfigNotifiable<IConfigBoolean> {
     // sorted: ABCDEFGHIJKLMNOPQRSTUVWXYZ
     //todo
-    // additional block breaking cooldown + configureable tick delay
-    // prevent dig below
+    // additional block breaking cooldown configureable tick delay
     ADDITIONAL_BLOCK_BREAKING_COOLDOWN("Additional Block Breaking Cooldown", false, "Add additional delay between breaking two blocks"),
     PREVENT_DIG_BELOW("Prevent Dig Below", false, "Prevents you from digging blocks that are lower than you, sneak to override"),
     STEP_UP("Step Up", false, "Increase player step up height: 0.6 -> 1.1")

@@ -21,6 +21,8 @@ public class Configs implements IConfigHandler {
     private static final String CONFIG_FILE_NAME = Reference.MOD_ID + ".json";
 
     public static class General {
+        //todo
+        // custom title
         public static final ConfigBoolean PLACE_HOLDER = new ConfigBoolean("LOL NO Tweaks HERE", false, "Not a comment");
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
