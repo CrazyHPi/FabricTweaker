@@ -4,9 +4,7 @@ import fi.dy.masa.malilib.util.restrictions.ItemRestriction;
 import net.minecraft.item.Item;
 import xyz.crazyh.fabrictweaker.config.Configs;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 
 public class WCItemRestriction extends ItemRestriction {
@@ -17,14 +15,22 @@ public class WCItemRestriction extends ItemRestriction {
     public void setListContents(List<String> namesBlacklist, List<String> namesWhitelist) {
         blackWildcards.clear();
         whiteWildcards.clear();
-        for (String s : namesBlacklist) {
+
+        Iterator<String> blacklistIterator = namesBlacklist.iterator();
+        while (blacklistIterator.hasNext()) {
+            String s = blacklistIterator.next();
             if (s.contains("*")) {
                 blackWildcards.add(s.replace("minecraft:", "").replace("*", ".*"));
+                blacklistIterator.remove();
             }
         }
-        for (String s : namesWhitelist) {
+
+        Iterator<String> whitelistIterator = namesWhitelist.iterator();
+        while (whitelistIterator.hasNext()) {
+            String s = whitelistIterator.next();
             if (s.contains("*")) {
                 whiteWildcards.add(s.replace("minecraft:", "").replace("*", ".*"));
+                whitelistIterator.remove();
             }
         }
 
