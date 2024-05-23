@@ -20,11 +20,13 @@ public class WCItemRestriction extends ItemRestriction {
         for (String s : namesBlacklist) {
             if (s.contains("*")) {
                 blackWildcards.add(s.replace("minecraft:", "").replace("*", ".*"));
+                namesBlacklist.remove(s);
             }
         }
         for (String s : namesWhitelist) {
             if (s.contains("*")) {
                 whiteWildcards.add(s.replace("minecraft:", "").replace("*", ".*"));
+                namesWhitelist.remove(s);
             }
         }
 
