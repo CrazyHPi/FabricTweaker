@@ -19,7 +19,8 @@ public enum DisableToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
     //todo
     // disable explosion sound
     // disable explosion sound when wither near by
-    DISABLE_BLOCK_BREAKING_COOLDOWN("Disable Block Breaking Cooldown", false, "Remove 5gt delay between breaking two non-instant mined block")
+    DISABLE_BLOCK_BREAKING_COOLDOWN("Disable Block Breaking Cooldown", false, "Remove 5gt delay between breaking two non-instant mined block"),
+    DISABLE_EXPLOSION_SOUND("Disable Explosion Sound", false, "Disable explosion sounds caused by tnt, creeper, wither skull")
     ;
     public static final ImmutableList<DisableToggle> VALUES = ImmutableList.copyOf(values());
 
