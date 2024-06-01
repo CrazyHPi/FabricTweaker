@@ -38,7 +38,6 @@ public class InventoryUtils {
 
         for (int i = 0; i < 9; i++) {
             if (!mainInv.get(i).isEmpty() && ITEM_DROP_LIST.isAllowed(mainInv.get(i).getItem())){
-                System.out.println(mainInv.get(i).getItem().toString());
                 interactionManager.clickSlot(0, i + 36, 1, SlotActionType.THROW, player);
             }
         }
