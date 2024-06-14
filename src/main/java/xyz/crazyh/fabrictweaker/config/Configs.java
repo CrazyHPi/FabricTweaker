@@ -8,6 +8,7 @@ import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.IConfigHandler;
 import fi.dy.masa.malilib.config.options.ConfigBoolean;
 import fi.dy.masa.malilib.config.options.ConfigOptionList;
+import fi.dy.masa.malilib.config.options.ConfigString;
 import fi.dy.masa.malilib.config.options.ConfigStringList;
 import fi.dy.masa.malilib.util.FileUtils;
 import fi.dy.masa.malilib.util.JsonUtils;
@@ -22,7 +23,6 @@ public class Configs implements IConfigHandler {
 
     public static class General {
         //todo
-        // custom title
         public static final ConfigBoolean PLACE_HOLDER = new ConfigBoolean("LOL NO Tweaks HERE", false, "Not a comment");
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
@@ -32,8 +32,8 @@ public class Configs implements IConfigHandler {
 
     public static class Lists {
         public static final ConfigOptionList DROP_INV_LIST_TYPE = new ConfigOptionList("Drop Inventory List Type", UsageRestriction.ListType.WHITELIST, "The list type of dropping inventory");
-        public static final ConfigStringList DROP_INV_BLACKLIST = new ConfigStringList("Drop Inventory Blacklist", ImmutableList.of("minecraft:diamond_pickaxe"), "Items that will not allowed to be dropped");
-        public static final ConfigStringList DROP_INV_WHITELIST = new ConfigStringList("Drop Inventory Whitelist", ImmutableList.of("minecraft:stone", "minecraft:deepslate"), "Items that will be dropped");
+        public static final ConfigStringList DROP_INV_BLACKLIST = new ConfigStringList("Drop Inventory Blacklist", ImmutableList.of("minecraft:diamond_pickaxe"), "Items that will not allowed to be dropped, wildcard \"*\" is supported, e.g. *_ore");
+        public static final ConfigStringList DROP_INV_WHITELIST = new ConfigStringList("Drop Inventory Whitelist", ImmutableList.of("minecraft:stone", "minecraft:deepslate"), "Items that will be dropped, wildcard \"*\" is supported, e.g. *_ore");
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
                 DROP_INV_LIST_TYPE,
