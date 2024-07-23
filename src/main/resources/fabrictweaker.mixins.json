@@ -4,7 +4,8 @@
   "package": "xyz.crazyh.fabrictweaker.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "Tweaks.fenceJumper.PlayerEntityMixin"
+    "Tweaks.fenceJumper.PlayerEntityMixin",
+    "Tweaks.strictFakeSneaking.PlayerEntityMixin"
   ],
   "client": [
     "Disables.disableBlockBreakingCooldown.ClientPlayerInteractionManagerMixin",
