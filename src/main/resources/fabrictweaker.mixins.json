@@ -11,6 +11,7 @@
     "Disables.disableBlockBreakingCooldown.ClientPlayerInteractionManagerMixin",
     "Disables.disableBossDarkenSky.GameRenderMixin",
     "Disables.disableExplosionSound.ClientWorldMixin",
+    "Disables.disableSneakSlowdown.ClientPlayerEntityMixin",
     "Disables.disableWitherSound.ClientWorldMixin",
     "Tweaks.additionalBlockBreakingCooldown.ClientPlayerInteractionManagerMixin",
     "Tweaks.preventDigBelow.ClientPlayerInteractionManagerMixin",
