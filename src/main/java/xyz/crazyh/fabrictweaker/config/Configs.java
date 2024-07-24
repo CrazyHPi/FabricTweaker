@@ -20,9 +20,11 @@ public class Configs implements IConfigHandler {
 
     public static class General {
         public static final ConfigInteger ADDITIONAL_COOLDOWN_VALUE = new ConfigInteger("Additional Cooldown Value", 3, 1, 20, "The time in gametick added to block breaking cooldown");
+        public static final ConfigInteger MAX_CHAT_WIDTH = new ConfigInteger("Max Chat Width", 280, 280, 1000, "Width of chat ofc");
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
-                ADDITIONAL_COOLDOWN_VALUE
+                ADDITIONAL_COOLDOWN_VALUE,
+                MAX_CHAT_WIDTH
         );
     }
 
