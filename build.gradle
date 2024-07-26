@@ -1,7 +1,9 @@
 plugins {
-    id 'fabric-loom' version '1.5-SNAPSHOT'
-    id 'maven-publish'
+    id 'fabric-loom' version '1.7-SNAPSHOT'
 }
+
+sourceCompatibility = JavaVersion.VERSION_21
+targetCompatibility = JavaVersion.VERSION_21
 
 version = project.mod_version
 group = project.maven_group
@@ -19,6 +21,7 @@ repositories {
     // for more information about repositories.
     maven { url 'https://masa.dy.fi/maven' }
     maven { url 'https://maven.terraformersmc.com/releases/' }
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -29,8 +32,9 @@ dependencies {
 
     // malilib
     modImplementation "fi.dy.masa.malilib:malilib-fabric-${project.minecraft_version}:${project.malilib_version}"
-    // mod menu todo
+
     modCompileOnly "com.terraformersmc:modmenu:${project.mod_menu_version}"
+    // for dev testing
 //    modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
 }
 
@@ -47,7 +51,7 @@ processResources {
     }
 }
 
-def targetJavaVersion = 17
+def targetJavaVersion = 21
 tasks.withType(JavaCompile).configureEach {
     // ensure that the encoding is set to UTF-8, no matter what the system default is
     // this fixes some edge cases with special characters not displaying correctly
@@ -73,22 +77,5 @@ java {
 jar {
     from("LICENSE") {
         rename { "${it}_${project.archivesBaseName}"}
-    }
-}
-
-// configure the maven publication
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
-    }
-
-    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-    repositories {
-        // Add repositories to publish to here.
-        // Notice: This block does NOT have the same function as the block in the top level.
-        // The repositories here will be used for publishing your artifact, not for
-        // retrieving dependencies.
     }
 }
