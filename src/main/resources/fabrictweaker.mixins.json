@@ -4,14 +4,17 @@
   "package": "xyz.crazyh.fabrictweaker.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "Tweaks.fenceJumper.PlayerEntityMixin"
+    "Tweaks.fenceJumper.PlayerEntityMixin",
+    "Tweaks.strictFakeSneaking.PlayerEntityMixin"
   ],
   "client": [
     "Disables.disableBlockBreakingCooldown.ClientPlayerInteractionManagerMixin",
     "Disables.disableBossDarkenSky.GameRenderMixin",
     "Disables.disableExplosionSound.ClientWorldMixin",
+    "Disables.disableSneakSlowdown.ClientPlayerEntityMixin",
     "Disables.disableWitherSound.ClientWorldMixin",
     "Tweaks.additionalBlockBreakingCooldown.ClientPlayerInteractionManagerMixin",
+    "Tweaks.chatWidth.ChatHudMixin",
     "Tweaks.preventDigBelow.ClientPlayerInteractionManagerMixin",
     "Tweaks.stepUp.ClientPlayerEntityMixin"
   ],

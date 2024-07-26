@@ -29,7 +29,6 @@ dependencies {
 
     // malilib
     modImplementation "fi.dy.masa.malilib:malilib-fabric-${project.minecraft_version}:${project.malilib_version}"
-    // mod menu todo
     modCompileOnly "com.terraformersmc:modmenu:${project.mod_menu_version}"
 //    modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
 }

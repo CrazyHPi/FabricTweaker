@@ -6,10 +6,7 @@ import com.google.gson.JsonObject;
 import fi.dy.masa.malilib.config.ConfigUtils;
 import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.IConfigHandler;
-import fi.dy.masa.malilib.config.options.ConfigBoolean;
-import fi.dy.masa.malilib.config.options.ConfigOptionList;
-import fi.dy.masa.malilib.config.options.ConfigString;
-import fi.dy.masa.malilib.config.options.ConfigStringList;
+import fi.dy.masa.malilib.config.options.*;
 import fi.dy.masa.malilib.util.FileUtils;
 import fi.dy.masa.malilib.util.JsonUtils;
 import fi.dy.masa.malilib.util.restrictions.UsageRestriction;
@@ -22,11 +19,12 @@ public class Configs implements IConfigHandler {
     private static final String CONFIG_FILE_NAME = Reference.MOD_ID + ".json";
 
     public static class General {
-        //todo
-        public static final ConfigBoolean PLACE_HOLDER = new ConfigBoolean("LOL NO Tweaks HERE", false, "Not a comment");
+        public static final ConfigInteger ADDITIONAL_COOLDOWN_VALUE = new ConfigInteger("Additional Cooldown Value", 3, 1, 20, "The time in gametick added to block breaking cooldown");
+        public static final ConfigInteger MAX_CHAT_WIDTH = new ConfigInteger("Max Chat Width", 280, 280, 1000, "Width of chat ofc");
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
-                PLACE_HOLDER
+                ADDITIONAL_COOLDOWN_VALUE,
+                MAX_CHAT_WIDTH
         );
     }
 
