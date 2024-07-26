@@ -19,6 +19,6 @@
     "Tweaks.stepUp.ClientPlayerEntityMixin"
   ],
   "injectors": {
-    "defaultRequire": 1
+    "defaultRequire": 0
   }
 }

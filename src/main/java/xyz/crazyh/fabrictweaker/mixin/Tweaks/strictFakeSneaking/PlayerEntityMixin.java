@@ -3,19 +3,16 @@ package xyz.crazyh.fabrictweaker.mixin.Tweaks.strictFakeSneaking;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MovementType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.Redirect;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import xyz.crazyh.fabrictweaker.config.FeatureToggle;
 
-@Mixin(PlayerEntity.class)
+@Mixin(value = PlayerEntity.class, priority = 1111)
 public abstract class PlayerEntityMixin extends LivingEntity {
     @Shadow protected abstract boolean clipAtLedge();
 
@@ -23,6 +20,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         super(entityType, world);
     }
 
+    //todo better tweakeroo compact
     @Redirect(
             method = "adjustMovementForSneaking",
             at = @At(
@@ -37,17 +35,30 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         return this.clipAtLedge();
     }
 
-    @Redirect(
+//    @Redirect(
+//            method = "adjustMovementForSneaking",
+//            at = @At(
+//                    value = "INVOKE",
+//                    target = "Lnet/minecraft/entity/player/PlayerEntity;getStepHeight()F"
+//            )
+//    )
+//    private float notGoingDown(PlayerEntity instance) {
+//        if (FeatureToggle.STRICT_FAKE_SNEAKING.getBooleanValue()) {
+//            return 0.1F;
+//        }
+//        return instance.getStepHeight();
+//    }
+
+    // viafabric compact
+    @ModifyVariable(
             method = "adjustMovementForSneaking",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/entity/player/PlayerEntity;getStepHeight()F"
-            )
+            at = @At("STORE"),
+            ordinal = 0
     )
-    private float nope(PlayerEntity instance) {
+    private float modifyStepHeight(float original) {
         if (FeatureToggle.STRICT_FAKE_SNEAKING.getBooleanValue()) {
             return 0.1F;
         }
-        return instance.getStepHeight();
+        return original;
     }
 }

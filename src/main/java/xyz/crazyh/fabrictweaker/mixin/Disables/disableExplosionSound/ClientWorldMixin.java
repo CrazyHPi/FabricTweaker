@@ -18,7 +18,7 @@ public abstract class ClientWorldMixin {
             cancellable = true
     )
     private void cancelExplosionSound(double x, double y, double z, SoundEvent event, SoundCategory category, float volume, float pitch, boolean useDistance, long seed, CallbackInfo ci) {
-        if (event == SoundEvents.ENTITY_GENERIC_EXPLODE && DisableToggle.DISABLE_EXPLOSION_SOUND.getBooleanValue()) {
+        if (event == SoundEvents.ENTITY_GENERIC_EXPLODE.value() && DisableToggle.DISABLE_EXPLOSION_SOUND.getBooleanValue()) {
             ci.cancel();
         }
     }

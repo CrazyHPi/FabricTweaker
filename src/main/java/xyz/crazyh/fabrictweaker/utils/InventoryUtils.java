@@ -62,7 +62,7 @@ public class InventoryUtils {
 
     public static Item getItemFromName(String s) {
         try {
-            return Registries.ITEM.get(new Identifier(s));
+            return Registries.ITEM.get(Identifier.of(s));
         } catch (Exception e) {
             return null;
         }
