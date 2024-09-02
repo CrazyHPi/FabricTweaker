@@ -30,14 +30,17 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    // malilib
-    modImplementation "fi.dy.masa.malilib:malilib-fabric-${project.minecraft_version}:${project.malilib_version}"
-    // litematica
-    modImplementation "com.github.sakura-ryoko:litematica:1.21-0.19.3-sakura.1"
-
+    // mod menu
     modCompileOnly "com.terraformersmc:modmenu:${project.mod_menu_version}"
     // for dev testing
 //    modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
+
+    // malilib
+    modImplementation "fi.dy.masa.malilib:malilib-fabric-${project.minecraft_version}:${project.malilib_version}"
+    // litematica
+    modImplementation "com.github.sakura-ryoko:litematica:${project.minecraft_version}-${project.litematica_version}"
+    // tweakeroo for compact test
+    modRuntimeOnly "com.github.sakura-ryoko:tweakeroo:${project.minecraft_version}-${project.tweakeroo_version}"
 }
 
 processResources {
@@ -73,7 +76,7 @@ java {
     // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
     // if it is present.
     // If you remove this line, sources will not be generated.
-    withSourcesJar()
+//    withSourcesJar()
 }
 
 jar {
