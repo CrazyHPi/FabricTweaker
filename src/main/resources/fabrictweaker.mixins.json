@@ -4,6 +4,7 @@
   "package": "xyz.crazyh.fabrictweaker.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "Tweaks.threadedLitemtica.SchematicPlacementManagerMixin",
     "Tweaks.fenceJumper.PlayerEntityMixin",
     "Tweaks.strictFakeSneaking.PlayerEntityMixin"
   ],
