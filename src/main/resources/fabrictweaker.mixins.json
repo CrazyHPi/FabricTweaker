@@ -4,6 +4,9 @@
   "package": "xyz.crazyh.fabrictweaker.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "Disables.disableSlowdown.CobwebBlockMixin",
+    "Disables.disableSlowdown.EntityMixin",
+    "Disables.disableSlowdown.LivingEntityMixin",
     "events.MinecraftServerMixin",
     "Tweaks.fenceJumper.PlayerEntityMixin",
     "Tweaks.strictFakeSneaking.PlayerEntityMixin",
@@ -13,6 +16,7 @@
     "Disables.disableBlockBreakingCooldown.ClientPlayerInteractionManagerMixin",
     "Disables.disableBossDarkenSky.GameRenderMixin",
     "Disables.disableExplosionSound.ClientWorldMixin",
+    "Disables.disableSlowdown.ClientPlayerEntityMixin",
     "Disables.disableSneakSlowdown.ClientPlayerEntityMixin",
     "Disables.disableWitherSound.ClientWorldMixin",
     "Tweaks.additionalBlockBreakingCooldown.ClientPlayerInteractionManagerMixin",
