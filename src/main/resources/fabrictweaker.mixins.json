@@ -6,7 +6,8 @@
   "mixins": [
     "events.MinecraftServerMixin",
     "Tweaks.fenceJumper.PlayerEntityMixin",
-    "Tweaks.strictFakeSneaking.PlayerEntityMixin"
+    "Tweaks.strictFakeSneaking.PlayerEntityMixin",
+    "Tweaks.threadedLitemtica.SchematicPlacementManagerMixin"
   ],
   "client": [
     "Disables.disableBlockBreakingCooldown.ClientPlayerInteractionManagerMixin",
