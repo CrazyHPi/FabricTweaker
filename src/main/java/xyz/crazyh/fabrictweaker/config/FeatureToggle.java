@@ -19,6 +19,8 @@ public enum FeatureToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
     // sorted: ABCDEFGHIJKLMNOPQRSTUVWXYZ
     //todo
     ADDITIONAL_BLOCK_BREAKING_COOLDOWN("Additional Block Breaking Cooldown", false, "Add additional delay between breaking two blocks"),
+    AUTO_PLACE_SHULKER_AFTER_PICK("Auto Place ShulkerBox After Pick", false, "Will try to place down shulkerbox after pickBlockShulker"),
+    EASY_PLACE_ALLOW_SHULKER("Easy Place Allow ShulkerBox", false, "Easy place mode's placement restriction will not check for shulkerbox"),
     FENCE_JUMPER("Fence Jumper", false, "You can jump over fence and wall."),
     PREVENT_DIG_BELOW("Prevent Dig Below", false, "Prevents you from digging blocks that are lower than you, sneak to override"),
     STEP_UP("Step Up", false, "Increase player step up height: 0.6 -> 1.1"),
