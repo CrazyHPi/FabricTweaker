@@ -19,24 +19,6 @@ public abstract class WorldUtilsMixin {
             method = "doEasyPlaceAction",
             at = @At(
                     value = "INVOKE",
-                    target = "Lfi/dy/masa/litematica/util/InventoryUtils;schematicWorldPickBlock(Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/World;Lnet/minecraft/client/MinecraftClient;)V",
-                    shift = At.Shift.AFTER
-            )
-
-    )
-    private static void placeShulkerAfterPick(MinecraftClient mc, CallbackInfoReturnable<ActionResult> cir) {
-        if (FeatureToggle.AUTO_PLACE_SHULKER_AFTER_PICK.getBooleanValue()) {
-            ClientPlayerEntity player = mc.player;
-            if (RandomUtils.SHULKER_BOX.contains(player.getMainHandStack().getItem())) {
-                mc.interactionManager.interactBlock(player, Hand.MAIN_HAND, (BlockHitResult) mc.crosshairTarget);
-            }
-        }
-    }
-
-    @Inject(
-            method = "doEasyPlaceAction",
-            at = @At(
-                    value = "INVOKE",
                     target = "Lfi/dy/masa/litematica/util/RayTraceUtils$RayTraceWrapper;getBlockHitResult()Lnet/minecraft/util/hit/BlockHitResult;"
             ),
             cancellable = true
