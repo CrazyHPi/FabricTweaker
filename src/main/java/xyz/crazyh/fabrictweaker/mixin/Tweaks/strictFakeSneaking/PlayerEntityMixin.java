@@ -73,7 +73,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     )
     private float fakeStepHeight(float original) {
         if (FeatureToggle.STRICT_FAKE_SNEAKING.getBooleanValue()) {
-            return 0.1F;
+            return 0.001F;
         }
         return original;
     }
