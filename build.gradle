@@ -39,6 +39,8 @@ dependencies {
     modImplementation "fi.dy.masa.malilib:malilib-fabric-${project.minecraft_version}:${project.malilib_version}"
     // litematica
     modImplementation "com.github.sakura-ryoko:litematica:${project.minecraft_version}-${project.litematica_version}"
+    // minihud
+    modImplementation "com.github.sakura-ryoko:minihud:1.21-sakura.23"
     // tweakeroo for compact test
     modRuntimeOnly "com.github.sakura-ryoko:tweakeroo:${project.minecraft_version}-${project.tweakeroo_version}"
 }

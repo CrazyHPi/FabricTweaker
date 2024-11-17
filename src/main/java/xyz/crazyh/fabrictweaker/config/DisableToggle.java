@@ -24,7 +24,9 @@ public enum DisableToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
     DISABLE_EXPLOSION_SOUND("Disable Explosion Sound", false, "Disable explosion sounds caused by tnt, creeper, wither skull"),
     DISABLE_PLAYER_SLOWDOWN("Disable Player Slowdown", false, "Disable player related slowdown"),
     DISABLE_SNEAK_SLOWDOWN("Disable Sneak Slowdown", false, "Disable slowdown effect when sneaking."),
-    DISABLE_WITHER_SOUND("Disable Wither Sound", false, "Disable wither ambient and hurt sound, not including skull explode sound")
+    DISABLE_WITHER_SOUND("Disable Wither Sound", false, "Disable wither ambient and hurt sound, not including skull explode sound"),
+    // this should be temp rule
+    DISABLE_MINIHUD_PACKET_WARNING("Disable MiniHud Warning", false, "what is this???"),
     ;
     public static final ImmutableList<DisableToggle> VALUES = ImmutableList.copyOf(values());
 

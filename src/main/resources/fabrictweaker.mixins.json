@@ -4,6 +4,7 @@
   "package": "xyz.crazyh.fabrictweaker.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "Disables.disableMinihudPacketWarning.ServuxStructuresPacketMixin",
     "Disables.disableSlowdown.CobwebBlockMixin",
     "Disables.disableSlowdown.EntityMixin",
     "Disables.disableSlowdown.LivingEntityMixin",
