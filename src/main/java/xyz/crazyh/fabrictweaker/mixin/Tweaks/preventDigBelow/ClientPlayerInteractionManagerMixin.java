@@ -10,11 +10,14 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import xyz.crazyh.fabrictweaker.config.Configs;
 import xyz.crazyh.fabrictweaker.config.FeatureToggle;
 
 @Mixin(ClientPlayerInteractionManager.class)
 public abstract class ClientPlayerInteractionManagerMixin {
-    @Shadow @Final private MinecraftClient client;
+    @Shadow
+    @Final
+    private MinecraftClient client;
 
     @Inject(
             method = "attackBlock",
@@ -22,7 +25,7 @@ public abstract class ClientPlayerInteractionManagerMixin {
             cancellable = true
     )
     private void cancelAttack(BlockPos pos, Direction direction, CallbackInfoReturnable<Boolean> cir) {
-        if (FeatureToggle.PREVENT_DIG_BELOW.getBooleanValue() && pos.getY() < client.player.getY() && !client.player.isSneaking()){
+        if (FeatureToggle.PREVENT_DIG_BELOW.getBooleanValue() && pos.getY() < client.player.getY() - Configs.General.PREVENT_DIG_DEPTH.getIntegerValue() && !client.player.isSneaking()) {
             cir.setReturnValue(false);
         }
     }
@@ -33,7 +36,7 @@ public abstract class ClientPlayerInteractionManagerMixin {
             cancellable = true
     )
     private void cancelUpdate(BlockPos pos, Direction direction, CallbackInfoReturnable<Boolean> cir) {
-        if (FeatureToggle.PREVENT_DIG_BELOW.getBooleanValue() && pos.getY() < client.player.getY() && !client.player.isSneaking()){
+        if (FeatureToggle.PREVENT_DIG_BELOW.getBooleanValue() && pos.getY() < client.player.getY() - Configs.General.PREVENT_DIG_DEPTH.getIntegerValue() && !client.player.isSneaking()) {
             cir.setReturnValue(false);
         }
     }

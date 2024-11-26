@@ -6,7 +6,9 @@ import com.google.gson.JsonObject;
 import fi.dy.masa.malilib.config.ConfigUtils;
 import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.IConfigHandler;
-import fi.dy.masa.malilib.config.options.*;
+import fi.dy.masa.malilib.config.options.ConfigInteger;
+import fi.dy.masa.malilib.config.options.ConfigOptionList;
+import fi.dy.masa.malilib.config.options.ConfigStringList;
 import fi.dy.masa.malilib.util.FileUtils;
 import fi.dy.masa.malilib.util.JsonUtils;
 import fi.dy.masa.malilib.util.restrictions.UsageRestriction;
@@ -21,10 +23,12 @@ public class Configs implements IConfigHandler {
     public static class General {
         public static final ConfigInteger ADDITIONAL_COOLDOWN_VALUE = new ConfigInteger("Additional Cooldown Value", 3, 1, 20, "The time in gametick added to block breaking cooldown");
         public static final ConfigInteger MAX_CHAT_WIDTH = new ConfigInteger("Max Chat Width", 280, 280, 1000, "Width of chat ofc");
+        public static final ConfigInteger PREVENT_DIG_DEPTH = new ConfigInteger("Prevent Dig Depth", 0, 0, 10, "The amount of blocks allowed by tweak PreventDigBelow, default=0 won't allow any block below you get dug");
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
                 ADDITIONAL_COOLDOWN_VALUE,
-                MAX_CHAT_WIDTH
+                MAX_CHAT_WIDTH,
+                PREVENT_DIG_DEPTH
         );
     }
 
