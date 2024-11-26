@@ -13,7 +13,8 @@ public abstract class ServuxStructuresPacketMixin {
             method = "fromPacket",
             at = @At(
                     value = "INVOKE",
-                    target = "Lorg/apache/logging/log4j/Logger;warn(Ljava/lang/String;)V"
+                    target = "Lorg/apache/logging/log4j/Logger;warn(Ljava/lang/String;)V",
+                    remap = false
             )
     )
     private static void noInvalidWarn(Logger instance, String s) {
@@ -27,7 +28,8 @@ public abstract class ServuxStructuresPacketMixin {
             method = "fromPacket",
             at = @At(
                     value = "INVOKE",
-                    target = "Lorg/apache/logging/log4j/Logger;error(Ljava/lang/String;)V"
+                    target = "Lorg/apache/logging/log4j/Logger;error(Ljava/lang/String;)V",
+                    remap = false
             )
     )
     private static void noFinalError(Logger instance, String s) {
