@@ -25,7 +25,8 @@ public abstract class WorldUtilsMixin {
                     value = "INVOKE",
                     target = "Lfi/dy/masa/litematica/world/SchematicWorldHandler;getSchematicWorld()Lfi/dy/masa/litematica/world/WorldSchematic;"
             ),
-            cancellable = true
+            cancellable = true,
+            remap = false
     )
     private static void allowWhenSuccess(MinecraftClient mc, CallbackInfoReturnable<ActionResult> cir, @Local BlockPos pos) {
         if (FeatureToggle.EASY_PLACE_ALLOW_LEVER_USE.getBooleanValue()){
