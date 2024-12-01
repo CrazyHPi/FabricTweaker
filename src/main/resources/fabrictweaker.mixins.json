@@ -10,6 +10,7 @@
     "Disables.disableSlowdown.LivingEntityMixin",
     "events.MinecraftServerMixin",
     "Tweaks.autoPlaceShulkerAfterPick.WorldUtilsMixin",
+    "Tweaks.easyPlaceAllowLeverUse.WorldUtilsMixin",
     "Tweaks.easyPlaceAllowShulker.WorldUtilsMixin",
     "Tweaks.fenceJumper.PlayerEntityMixin",
     "Tweaks.strictFakeSneaking.PlayerEntityMixin",
