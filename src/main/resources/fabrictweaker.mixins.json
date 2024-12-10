@@ -26,6 +26,7 @@
     "Tweaks.additionalBlockBreakingCooldown.ClientPlayerInteractionManagerMixin",
     "Tweaks.chatWidth.ChatHudMixin",
     "Tweaks.preventDigBelow.ClientPlayerInteractionManagerMixin",
+    "Tweaks.preventPlaceBelow.ClientPlayerInteractionManagerMixin",
     "Tweaks.stepUp.ClientPlayerEntityMixin"
   ],
   "injectors": {
