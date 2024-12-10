@@ -1,5 +1,6 @@
 package xyz.crazyh.fabrictweaker.mixin.Tweaks.preventDigBelow;
 
+import fi.dy.masa.malilib.util.InfoUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.util.math.BlockPos;
@@ -25,7 +26,10 @@ public abstract class ClientPlayerInteractionManagerMixin {
             cancellable = true
     )
     private void cancelAttack(BlockPos pos, Direction direction, CallbackInfoReturnable<Boolean> cir) {
-        if (FeatureToggle.PREVENT_DIG_BELOW.getBooleanValue() && pos.getY() < client.player.getY() - Configs.General.PREVENT_DIG_DEPTH.getIntegerValue() && !client.player.isSneaking()) {
+        if (FeatureToggle.PREVENT_DIG_BELOW.getBooleanValue()
+                && pos.getY() < client.player.getY() - Configs.General.PREVENT_DIG_DEPTH.getIntegerValue()
+                && !client.player.isSneaking()) {
+            InfoUtils.printActionbarMessage("Dig canceled");
             cir.setReturnValue(false);
         }
     }
@@ -36,7 +40,10 @@ public abstract class ClientPlayerInteractionManagerMixin {
             cancellable = true
     )
     private void cancelUpdate(BlockPos pos, Direction direction, CallbackInfoReturnable<Boolean> cir) {
-        if (FeatureToggle.PREVENT_DIG_BELOW.getBooleanValue() && pos.getY() < client.player.getY() - Configs.General.PREVENT_DIG_DEPTH.getIntegerValue() && !client.player.isSneaking()) {
+        if (FeatureToggle.PREVENT_DIG_BELOW.getBooleanValue()
+                && pos.getY() < client.player.getY() - Configs.General.PREVENT_DIG_DEPTH.getIntegerValue()
+                && !client.player.isSneaking()) {
+            InfoUtils.printActionbarMessage("Dig canceled");
             cir.setReturnValue(false);
         }
     }

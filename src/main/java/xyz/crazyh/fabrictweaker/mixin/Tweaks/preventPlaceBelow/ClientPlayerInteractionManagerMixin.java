@@ -1,5 +1,6 @@
 package xyz.crazyh.fabrictweaker.mixin.Tweaks.preventPlaceBelow;
 
+import fi.dy.masa.malilib.util.InfoUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
@@ -28,6 +29,7 @@ public abstract class ClientPlayerInteractionManagerMixin {
         if (FeatureToggle.PREVENT_PLACE_BELOW.getBooleanValue()
                 && pos.getY() < client.player.getY() - Configs.General.PREVENT_PLACE_DEPTH.getIntegerValue()
                 && !client.player.isSneaking()) {
+            InfoUtils.printActionbarMessage("Place canceled");
             cir.setReturnValue(ActionResult.FAIL);
         }
     }
