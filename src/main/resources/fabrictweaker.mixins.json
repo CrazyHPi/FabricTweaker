@@ -21,6 +21,7 @@
     "Disables.disableBlockBreakingCooldown.ClientPlayerInteractionManagerMixin",
     "Disables.disableBossDarkenSky.GameRenderMixin",
     "Disables.disableExplosionSound.ClientWorldMixin",
+    "Disables.disableLevitation.ClientPlayerEntityMixin",
     "Disables.disableSlowdown.ClientPlayerEntityMixin",
     "Disables.disableSneakSlowdown.ClientPlayerEntityMixin",
     "Disables.disableWitherSound.ClientWorldMixin",
