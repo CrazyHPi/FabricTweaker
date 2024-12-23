@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "Disables.disableMinihudPacketWarning.ServuxStructuresPacketMixin",
+    "Disables.disablePartialCommandFeedback.GameModeCommandMixin",
     "Disables.disableSlowdown.CobwebBlockMixin",
     "Disables.disableSlowdown.EntityMixin",
     "Disables.disableSlowdown.LivingEntityMixin",
