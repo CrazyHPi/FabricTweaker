@@ -23,6 +23,7 @@ public class Configs implements IConfigHandler {
     public static class General {
         public static final ConfigInteger ADDITIONAL_COOLDOWN_VALUE = new ConfigInteger("Additional Cooldown Value", 3, 1, 20, "The time in gametick added to block breaking cooldown");
         public static final ConfigInteger CHUNK_RENDER_DISTANCE = new ConfigInteger("Chunk Render Distance", 0, 0, 512, "The chunk render distance that are kept to render. Default=0 will use vanilla setting.");
+        public static final ConfigInteger FIXED_LAN_PORT = new ConfigInteger("Fixed Lan Port", 25565, 1024, 65536, false, "The default port used by \"Open to Lan\". Use 65536 to disable");
         public static final ConfigInteger MAX_CHAT_WIDTH = new ConfigInteger("Max Chat Width", 280, 280, 1000, "Width of chat ofc");
         public static final ConfigInteger PREVENT_DIG_DEPTH = new ConfigInteger("Prevent Dig Depth", 0, 0, 16, "The amount of blocks allowed by tweak PreventDigBelow, default=0 won't allow any block below you get dug");
         public static final ConfigInteger PREVENT_PLACE_DEPTH = new ConfigInteger("Prevent Place Depth", 0, 0, 16, "The amount of blocks allowed by tweak PreventPlaceBelow, default=0 won't allow any block below you get placed");
@@ -30,6 +31,7 @@ public class Configs implements IConfigHandler {
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
                 ADDITIONAL_COOLDOWN_VALUE,
                 CHUNK_RENDER_DISTANCE,
+                FIXED_LAN_PORT,
                 MAX_CHAT_WIDTH,
                 PREVENT_DIG_DEPTH,
                 PREVENT_PLACE_DEPTH
