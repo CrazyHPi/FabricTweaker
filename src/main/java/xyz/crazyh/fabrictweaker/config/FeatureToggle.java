@@ -20,6 +20,7 @@ public enum FeatureToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
     //todo
     ADDITIONAL_BLOCK_BREAKING_COOLDOWN("Additional Block Breaking Cooldown", false, "Add additional delay between breaking two blocks"),
     AUTO_PLACE_SHULKER_AFTER_PICK("Auto Place ShulkerBox After Pick", false, "Will try to place down shulkerbox after pickBlockShulker"),
+    CREATIVE_OP_TAB("Creative OP Tab", false, "operatorItemsTab always set to true, regardless of option setting or permission level"),
     EASY_PLACE_ALLOW_LEVER_USE("Easy Place Allow Lever Use", false, "Will allow flicking lever when easy place is enabled."),
     EASY_PLACE_ALLOW_SHULKER("Easy Place Allow ShulkerBox", false, "Easy place mode's placement restriction will not check for shulkerbox"),
     FENCE_JUMPER("Fence Jumper", false, "You can jump over fence and wall."),
