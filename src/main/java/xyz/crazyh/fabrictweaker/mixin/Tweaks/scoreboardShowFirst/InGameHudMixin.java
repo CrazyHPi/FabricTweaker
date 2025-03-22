@@ -27,6 +27,6 @@ public abstract class InGameHudMixin {
             )
     )
     private Comparator<ScoreboardEntry> sortEntries(Comparator<ScoreboardEntry> original) {
-        return FeatureToggle.SCOREBOARD_SHOW_FIRST.getBooleanValue() ? I_WILL_BE_ON_TOP : original;
+        return FeatureToggle.SCOREBOARD_ON_TOP.getBooleanValue() ? I_WILL_BE_ON_TOP : original;
     }
 }
