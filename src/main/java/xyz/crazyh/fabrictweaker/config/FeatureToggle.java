@@ -26,6 +26,7 @@ public enum FeatureToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
     FENCE_JUMPER("Fence Jumper", false, "You can jump over fence and wall."),
     PREVENT_DIG_BELOW("Prevent Dig Below", false, "Prevents you from digging blocks that are lower than you, sneak to override"),
     PREVENT_PLACE_BELOW("Prevent Place Below", false, "Prevents you from placing blocks that are lower than you, sneak to override"),
+    SCOREBOARD_ON_TOP("Scoreboard On Top", false, "Shows my own score on the top of the scoreboard"),
     STEP_UP("Step Up", false, "Increase player step up height: 0.6 -> 1.1"),
     STRICT_FAKE_SNEAKING("Strict Fake Sneaking", false, "Fake sneaking but you wont fall from edge at all."),
     THREADED_LITEMATICA_UPDATE("Threaded Litematica Update", false, "TEMP FEATURE, will make schem update on another thread, USE WITH CAUTION"),

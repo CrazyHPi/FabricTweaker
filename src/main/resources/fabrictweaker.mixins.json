@@ -32,6 +32,7 @@
     "Tweaks.fixedLanPort.OpenToLanScreenMixin",
     "Tweaks.preventDigBelow.ClientPlayerInteractionManagerMixin",
     "Tweaks.preventPlaceBelow.ClientPlayerInteractionManagerMixin",
+    "Tweaks.scoreboardShowFirst.InGameHudMixin",
     "Tweaks.stepUp.ClientPlayerEntityMixin"
   ],
   "injectors": {
