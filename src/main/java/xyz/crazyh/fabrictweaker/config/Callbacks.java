@@ -3,10 +3,14 @@ package xyz.crazyh.fabrictweaker.config;
 import fi.dy.masa.litematica.Litematica;
 import fi.dy.masa.litematica.config.Configs;
 import fi.dy.masa.malilib.config.options.ConfigHotkey;
+import fi.dy.masa.malilib.hotkeys.IKeybind;
+import fi.dy.masa.malilib.hotkeys.KeyAction;
 import net.minecraft.client.MinecraftClient;
 import xyz.crazyh.fabrictweaker.gui.GuiConfigs;
 import xyz.crazyh.fabrictweaker.utils.InventoryUtils;
 import xyz.crazyh.fabrictweaker.utils.RandomUtils;
+
+import java.util.function.BiConsumer;
 
 public class Callbacks {
     public static void init(MinecraftClient mc) {
@@ -18,6 +22,13 @@ public class Callbacks {
     public static void setHotkeyCallback(ConfigHotkey hotkey, Runnable run) {
         hotkey.getKeybind().setCallback((action, key) -> {
             run.run();
+            return true;
+        });
+    }
+
+    public static void setHotkeyCallback(ConfigHotkey hotkey, BiConsumer<KeyAction, IKeybind> run) {
+        hotkey.getKeybind().setCallback((action, key) -> {
+            run.accept(action, key);
             return true;
         });
     }
