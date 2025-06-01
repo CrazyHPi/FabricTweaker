@@ -1,7 +1,10 @@
 package xyz.crazyh.fabrictweaker.utils;
 
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.text.Text;
 
 import java.util.Set;
 
@@ -25,4 +28,19 @@ public class RandomUtils {
             Items.RED_SHULKER_BOX,
             Items.BLACK_SHULKER_BOX
     );
+
+    public static void sendCoords() {
+        MinecraftClient client = MinecraftClient.getInstance();
+        PlayerEntity player = client.player;
+
+
+
+        client.player.sendMessage(Text.literal(
+                String.format("[x:%d, y:%d, z:%d]",
+                        (int) player.getX(),
+                        (int) player.getY(),
+                        (int) player.getZ())
+        ), false);
+    }
+
 }

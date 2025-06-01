@@ -16,6 +16,7 @@ public class Callbacks {
     public static void init(MinecraftClient mc) {
         setHotkeyCallback(Hotkeys.OPEN_GUI, GuiConfigs::openGui);
         setHotkeyCallback(Hotkeys.DROP_INVENTORY, InventoryUtils::dropInv);
+        setHotkeyCallback(Hotkeys.SHARE_COORDS, RandomUtils::sendCoords);
         FeatureToggle.THREADED_LITEMATICA_UPDATE.setValueChangeCallback(config -> Configs.Generic.LOAD_ENTIRE_SCHEMATICS.setBooleanValue(config.getBooleanValue()));
     }
 
