@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import fi.dy.masa.malilib.config.ConfigUtils;
 import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.IConfigHandler;
+import fi.dy.masa.malilib.config.options.ConfigBoolean;
 import fi.dy.masa.malilib.config.options.ConfigInteger;
 import fi.dy.masa.malilib.config.options.ConfigOptionList;
 import fi.dy.masa.malilib.config.options.ConfigStringList;
@@ -27,6 +28,7 @@ public class Configs implements IConfigHandler {
         public static final ConfigInteger MAX_CHAT_WIDTH = new ConfigInteger("Max Chat Width", 280, 280, 1000, "Width of chat ofc");
         public static final ConfigInteger PREVENT_DIG_DEPTH = new ConfigInteger("Prevent Dig Depth", 0, 0, 16, "The amount of blocks allowed by tweak PreventDigBelow, default=0 won't allow any block below you get dug");
         public static final ConfigInteger PREVENT_PLACE_DEPTH = new ConfigInteger("Prevent Place Depth", 0, 0, 16, "The amount of blocks allowed by tweak PreventPlaceBelow, default=0 won't allow any block below you get placed");
+        public static final ConfigBoolean SEND_COORDS_TO_PUBLIC_CHAT = new ConfigBoolean("Send Coords to Public Chat", false, "Whether to send the coords to the public chat. If False, it will only display it in client chat hud.");
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
                 ADDITIONAL_COOLDOWN_VALUE,
@@ -34,7 +36,8 @@ public class Configs implements IConfigHandler {
                 FIXED_LAN_PORT,
                 MAX_CHAT_WIDTH,
                 PREVENT_DIG_DEPTH,
-                PREVENT_PLACE_DEPTH
+                PREVENT_PLACE_DEPTH,
+                SEND_COORDS_TO_PUBLIC_CHAT
         );
     }
 

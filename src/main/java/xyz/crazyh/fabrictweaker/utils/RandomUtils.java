@@ -1,10 +1,12 @@
 package xyz.crazyh.fabrictweaker.utils;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.client.network.ClientPlayNetworkHandler;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.text.Text;
+import xyz.crazyh.fabrictweaker.config.Configs;
 
 import java.util.Set;
 
@@ -31,16 +33,14 @@ public class RandomUtils {
 
     public static void sendCoords() {
         MinecraftClient client = MinecraftClient.getInstance();
-        PlayerEntity player = client.player;
+        ClientPlayerEntity player = client.player;
+        ClientPlayNetworkHandler networkHandler = player.networkHandler;
+        String coords = String.format("[x:%d, y:%d, z:%d]", (int) player.getX(), (int) player.getY(), (int) player.getZ());
 
-
-
-        client.player.sendMessage(Text.literal(
-                String.format("[x:%d, y:%d, z:%d]",
-                        (int) player.getX(),
-                        (int) player.getY(),
-                        (int) player.getZ())
-        ), false);
+        if (Configs.General.SEND_COORDS_TO_PUBLIC_CHAT.getBooleanValue()) {
+            networkHandler.sendChatMessage(coords);
+        } else {
+            player.sendMessage(Text.literal(coords), false);
+        }
     }
-
 }
