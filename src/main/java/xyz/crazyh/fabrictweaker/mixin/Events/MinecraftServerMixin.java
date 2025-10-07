@@ -1,4 +1,4 @@
-package xyz.crazyh.fabrictweaker.mixin.events;
+package xyz.crazyh.fabrictweaker.mixin.Events;
 
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;
