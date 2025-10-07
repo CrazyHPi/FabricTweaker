@@ -84,7 +84,6 @@ public class InventoryUtils {
                     new Int2ObjectOpenHashMap<>()
                     )
             );
-            System.out.println("Inventory refreshed");
         }
     }
 
