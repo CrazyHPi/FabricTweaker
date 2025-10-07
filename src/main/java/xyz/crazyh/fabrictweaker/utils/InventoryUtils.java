@@ -2,12 +2,19 @@ package xyz.crazyh.fabrictweaker.utils;
 
 import fi.dy.masa.malilib.gui.Message;
 import fi.dy.masa.malilib.util.InfoUtils;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.InventoryScreen;
+import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.packet.c2s.play.ClickSlotC2SPacket;
 import net.minecraft.registry.Registries;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.util.Identifier;
@@ -19,6 +26,7 @@ import java.util.List;
 public class InventoryUtils {
     public static final WCItemRestriction ITEM_DROP_LIST = new WCItemRestriction();
 
+    // auto drop inventory
     public static void dropInv() {
         MinecraftClient mc = MinecraftClient.getInstance();
         ClientPlayerEntity player = mc.player;
@@ -50,6 +58,37 @@ public class InventoryUtils {
 
         InfoUtils.showGuiOrActionBarMessage(Message.MessageType.INFO, "fabrictweaker.message.dropinv");
     }
+
+
+    // timed refresh inventory
+    public static void refreshInv() {
+        ClientPlayerEntity player = MinecraftClient.getInstance().player;
+        if (player == null) {
+            return;
+        }
+        ClientPlayNetworkHandler networkHandler = player.networkHandler;
+
+        if (networkHandler != null) {
+            ItemStack item = new ItemStack(Items.BEDROCK);
+            NbtCompound nbt = new NbtCompound();
+            nbt.putDouble("Inv Resync", Double.NaN);
+            NbtComponent.set(DataComponentTypes.CUSTOM_DATA, item, nbt);
+
+            networkHandler.sendPacket(new ClickSlotC2SPacket(
+                    player.playerScreenHandler.syncId,
+                    player.playerScreenHandler.getRevision(),
+                    -999,
+                    2,
+                    SlotActionType.QUICK_CRAFT,
+                    item,
+                    new Int2ObjectOpenHashMap<>()
+                    )
+            );
+            System.out.println("Inventory refreshed");
+        }
+    }
+
+
 
     // might be useful, who knows
     public static List<Item> getItemsFromNames(List<String> strings) {

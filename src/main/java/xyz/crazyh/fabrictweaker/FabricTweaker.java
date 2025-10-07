@@ -1,17 +1,20 @@
 package xyz.crazyh.fabrictweaker;
 
 import fi.dy.masa.malilib.event.InitializationHandler;
-import fi.dy.masa.malilib.interfaces.IClientTickHandler;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.server.MinecraftServer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import xyz.crazyh.fabrictweaker.config.Configs;
+import xyz.crazyh.fabrictweaker.utils.InventoryUtils;
 
 
 public class FabricTweaker implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger(Reference.MOD_ID);
     public static MinecraftServer minecraftServer;
+
+    private static int autoRefreshInventoryCounter = 0;
 
     @Override
     public void onInitialize() {
@@ -38,6 +41,11 @@ public class FabricTweaker implements ModInitializer {
 
     // client tick event, called after client tick
     public static void onClientTick(MinecraftClient mc) {
-
+        // AUTO_REFRESH_INV
+        if (Configs.General.AUTO_REFRESH_INV.getBooleanValue()
+                && autoRefreshInventoryCounter++ >= Configs.General.REFRESH_INV_INTERVAL.getIntegerValue()) {
+            InventoryUtils.refreshInv();
+            autoRefreshInventoryCounter = 0;
+        }
     }
 }
