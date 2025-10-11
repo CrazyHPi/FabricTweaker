@@ -41,7 +41,7 @@ public class WCItemRestriction extends ItemRestriction {
 
     @Override
     public boolean isAllowed(Item item) {
-        ListType type = (ListType) Configs.Lists.DROP_INV_LIST_TYPE.getOptionListValue();
+        ListType type = this.type;
         if (getWCStringForType(type).isEmpty()) {
             return super.isAllowed(item);
         }
