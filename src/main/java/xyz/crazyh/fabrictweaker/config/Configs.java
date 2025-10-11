@@ -15,8 +15,10 @@ import fi.dy.masa.malilib.util.JsonUtils;
 import fi.dy.masa.malilib.util.restrictions.UsageRestriction;
 import xyz.crazyh.fabrictweaker.Reference;
 import xyz.crazyh.fabrictweaker.utils.InventoryUtils;
+import xyz.crazyh.fabrictweaker.utils.WCItemRestriction;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class Configs implements IConfigHandler {
     private static final String CONFIG_FILE_NAME = Reference.MOD_ID + ".json";
@@ -50,10 +52,14 @@ public class Configs implements IConfigHandler {
         public static final ConfigStringList DROP_INV_BLACKLIST = new ConfigStringList("Drop Inventory Blacklist", ImmutableList.of("minecraft:diamond_pickaxe"), "Items that will not allowed to be dropped, wildcard \"*\" is supported, e.g. *_ore");
         public static final ConfigStringList DROP_INV_WHITELIST = new ConfigStringList("Drop Inventory Whitelist", ImmutableList.of("minecraft:stone", "minecraft:deepslate"), "Items that will be dropped, wildcard \"*\" is supported, e.g. *_ore");
 
+        public static final ConfigStringList EASY_PLACE_ALLOW_BLOCKS_LIST = new ConfigStringList("Easy Place Allow Blocks List", ImmutableList.of(), "Blocks that will be allowed when easy place is enabled. Wildcard \"*\" is supported.");
+        public static final WCItemRestriction EASY_PLACE_LIST = new WCItemRestriction();
+
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
                 DROP_INV_LIST_TYPE,
                 DROP_INV_BLACKLIST,
-                DROP_INV_WHITELIST
+                DROP_INV_WHITELIST,
+                EASY_PLACE_ALLOW_BLOCKS_LIST
         );
     }
 
@@ -79,6 +85,12 @@ public class Configs implements IConfigHandler {
         InventoryUtils.ITEM_DROP_LIST.setListContents(
                 Lists.DROP_INV_BLACKLIST.getStrings(),
                 Lists.DROP_INV_WHITELIST.getStrings()
+        );
+
+        Lists.EASY_PLACE_LIST.setListType(UsageRestriction.ListType.WHITELIST);
+        Lists.EASY_PLACE_LIST.setListContents(
+                ImmutableList.of(),
+                Lists.EASY_PLACE_ALLOW_BLOCKS_LIST.getStrings()
         );
     }
 
