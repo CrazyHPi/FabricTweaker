@@ -1,8 +1,7 @@
-package xyz.crazyh.fabrictweaker.gui;
+package xyz.crazyh.fabrictweaker.config.gui;
 
 import com.google.common.collect.ImmutableList;
 import fi.dy.masa.malilib.config.IConfigBase;
-import fi.dy.masa.malilib.config.IConfigBoolean;
 import fi.dy.masa.malilib.config.IHotkeyTogglable;
 import fi.dy.masa.malilib.config.options.BooleanHotkeyGuiWrapper;
 import fi.dy.masa.malilib.gui.GuiBase;
@@ -11,7 +10,6 @@ import fi.dy.masa.malilib.gui.button.ButtonBase;
 import fi.dy.masa.malilib.gui.button.ButtonGeneric;
 import fi.dy.masa.malilib.gui.button.IButtonActionListener;
 import fi.dy.masa.malilib.util.StringUtils;
-import net.minecraft.client.gui.screen.Screen;
 import xyz.crazyh.fabrictweaker.Reference;
 import xyz.crazyh.fabrictweaker.config.Configs;
 import xyz.crazyh.fabrictweaker.config.DisableToggle;

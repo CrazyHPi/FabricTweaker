@@ -6,7 +6,7 @@ import fi.dy.masa.malilib.interfaces.IInitializationHandler;
 import net.minecraft.client.MinecraftClient;
 import xyz.crazyh.fabrictweaker.config.Callbacks;
 import xyz.crazyh.fabrictweaker.config.Configs;
-import xyz.crazyh.fabrictweaker.eventHandler.InputHandler;
+import xyz.crazyh.fabrictweaker.config.input.InputHandler;
 
 public class InitHandler implements IInitializationHandler {
     @Override

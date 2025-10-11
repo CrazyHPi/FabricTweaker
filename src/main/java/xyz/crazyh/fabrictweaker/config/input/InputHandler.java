@@ -1,4 +1,4 @@
-package xyz.crazyh.fabrictweaker.eventHandler;
+package xyz.crazyh.fabrictweaker.config.input;
 
 import com.google.common.collect.ImmutableList;
 import fi.dy.masa.malilib.hotkeys.*;

@@ -1,12 +1,11 @@
 package xyz.crazyh.fabrictweaker.config;
 
-import fi.dy.masa.litematica.Litematica;
 import fi.dy.masa.litematica.config.Configs;
 import fi.dy.masa.malilib.config.options.ConfigHotkey;
 import fi.dy.masa.malilib.hotkeys.IKeybind;
 import fi.dy.masa.malilib.hotkeys.KeyAction;
 import net.minecraft.client.MinecraftClient;
-import xyz.crazyh.fabrictweaker.gui.GuiConfigs;
+import xyz.crazyh.fabrictweaker.config.gui.GuiConfigs;
 import xyz.crazyh.fabrictweaker.utils.InventoryUtils;
 import xyz.crazyh.fabrictweaker.utils.RandomUtils;
 
