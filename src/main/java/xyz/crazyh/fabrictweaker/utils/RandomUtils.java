@@ -1,5 +1,10 @@
 package xyz.crazyh.fabrictweaker.utils;
 
+import fi.dy.masa.litematica.data.DataManager;
+import fi.dy.masa.litematica.materials.MaterialListBase;
+import fi.dy.masa.litematica.schematic.placement.SchematicPlacement;
+import fi.dy.masa.malilib.gui.Message;
+import fi.dy.masa.malilib.util.InfoUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -42,5 +47,26 @@ public class RandomUtils {
         } else {
             player.sendMessage(Text.literal(coords), false);
         }
+    }
+
+    public static void refreshMaterialList() {
+        // basically copy-paste from /fi/dy/masa/litematica/event/KeyCallbacks.java:360
+        MaterialListBase materialList = DataManager.getMaterialList();
+
+        if (materialList == null) {
+            SchematicPlacement schematicPlacement = DataManager.getSchematicPlacementManager().getSelectedSchematicPlacement();
+
+            if (schematicPlacement != null) {
+                materialList = schematicPlacement.getMaterialList();
+                materialList.reCreateMaterialList();
+            } else {
+                InfoUtils.showGuiOrInGameMessage(Message.MessageType.ERROR, "litematica.message.error.no_placement_selected");
+            }
+        }
+
+        if (materialList != null) {
+            materialList.reCreateMaterialList();
+        }
+
     }
 }
