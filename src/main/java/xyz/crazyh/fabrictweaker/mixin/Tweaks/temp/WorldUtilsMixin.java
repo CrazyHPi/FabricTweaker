@@ -14,10 +14,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import xyz.crazyh.fabrictweaker.config.FeatureToggle;
+import xyz.crazyh.fabrictweaker.utils.InventoryUtils;
 import xyz.crazyh.fabrictweaker.utils.RandomUtils;
 
 @Mixin(WorldUtils.class)
 public abstract class WorldUtilsMixin {
+
+    // prevent falling block mid-air placement
     @Inject(
             method = "doEasyPlaceAction",
             at = @At(
@@ -35,6 +38,21 @@ public abstract class WorldUtilsMixin {
                     mc.world.getBlockState(pos.offset(Direction.DOWN)).getBlock() instanceof AirBlock) {
                 cir.setReturnValue(ActionResult.FAIL); // return PASS will let vanilla handle the placement
             }
+        }
+    }
+
+    // refresh inv after pick
+    @Inject(
+            method = "doEasyPlaceAction",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lfi/dy/masa/litematica/util/InventoryUtils;schematicWorldPickBlock(Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/World;Lnet/minecraft/client/MinecraftClient;)V",
+                    shift = At.Shift.AFTER
+            )
+    )
+    private static void refreshAfterPick(MinecraftClient mc, CallbackInfoReturnable<ActionResult> cir) {
+        if (FeatureToggle.TEMP_FEATURE1.getBooleanValue()) {
+            InventoryUtils.refreshInv();
         }
     }
 }

@@ -36,6 +36,7 @@ public enum FeatureToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
 
     // temp feature, personal use only
     TEMP_FEATURE("SOME TEMP FEATURE", false, "prevent place powder when no block under, temp feature, will remove"),
+    TEMP_FEATURE1("temp refresh after pick", false, "try to refresh inv after easyplace pick block"),
     ;
 
     public static final ImmutableList<FeatureToggle> VALUES = ImmutableList.copyOf(values());
