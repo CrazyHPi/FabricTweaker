@@ -9,6 +9,7 @@ import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import xyz.crazyh.fabrictweaker.config.Configs;
 import xyz.crazyh.fabrictweaker.config.FeatureToggle;
 
 @Mixin(value = PlayerEntity.class)
@@ -73,7 +74,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     )
     private float fakeStepHeight(float original) {
         if (FeatureToggle.STRICT_FAKE_SNEAKING.getBooleanValue()) {
-            return 0.001F;
+            return (float) Configs.General.SNEAK_HEIGHT.getDoubleValue();
         }
         return original;
     }
