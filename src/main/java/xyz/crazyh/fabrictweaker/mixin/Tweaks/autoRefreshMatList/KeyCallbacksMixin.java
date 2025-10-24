@@ -17,7 +17,8 @@ public abstract class KeyCallbacksMixin {
                     value = "INVOKE",
                     target = "Lfi/dy/masa/malilib/util/LayerRange;moveLayer(I)Z",
                     shift = At.Shift.AFTER
-            )
+            ),
+            remap = false
     )
     private void triggerRefresh(KeyAction action, IKeybind key, CallbackInfoReturnable<Boolean> cir) {
         if (FeatureToggle.AUTO_REFRESH_MAT_LIST.getBooleanValue()) {
