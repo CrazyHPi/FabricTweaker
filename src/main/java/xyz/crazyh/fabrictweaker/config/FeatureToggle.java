@@ -33,6 +33,9 @@ public enum FeatureToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
     STEP_UP("Step Up", false, "Increase player step up height: 0.6 -> 1.1"),
     STRICT_FAKE_SNEAKING("Strict Fake Sneaking", false, "Fake sneaking but you wont fall from edge at all."),
     THREADED_LITEMATICA_UPDATE("Threaded Litematica Update", false, "TEMP FEATURE, will make schem update on another thread, USE WITH CAUTION"),
+
+    // temp feature, personal use only
+    TEMP_FEATURE("SOME TEMP FEATURE", false, "prevent place powder when no block under, temp feature, will remove"),
     ;
 
     public static final ImmutableList<FeatureToggle> VALUES = ImmutableList.copyOf(values());

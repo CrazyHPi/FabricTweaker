@@ -17,6 +17,7 @@
     "Tweaks.easyPlaceAllowShulker.WorldUtilsMixin",
     "Tweaks.fenceJumper.PlayerEntityMixin",
     "Tweaks.strictFakeSneaking.PlayerEntityMixin",
+    "Tweaks.temp.WorldUtilsMixin",
     "Tweaks.threadedLitemtica.SchematicPlacementManagerMixin"
   ],
   "client": [
