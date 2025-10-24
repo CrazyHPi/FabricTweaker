@@ -20,6 +20,7 @@ public enum FeatureToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
     //todo
     ADDITIONAL_BLOCK_BREAKING_COOLDOWN("Additional Block Breaking Cooldown", false, "Add additional delay between breaking two blocks"),
     AUTO_PLACE_SHULKER_AFTER_PICK("Auto Place ShulkerBox After Pick", false, "Will try to place down shulkerbox after pickBlockShulker"),
+    AUTO_REFRESH_MAT_LIST("Auto Refresh Material List", false, "Will refresh the litematica's material list after pressing LAYER_NEXT and LAYER_PREVIOUS hotkey."),
     CREATIVE_OP_TAB("Creative OP Tab", false, "operatorItemsTab always set to true, regardless of option setting or permission level"),
     EASY_PLACE_ALLOW_BLOCKS("Easy Place Allow Blocks", false, "Will allow blocks in the white list be placed while easy place is enabled"),
     EASY_PLACE_ALLOW_LEVER_USE("Easy Place Allow Lever Use", false, "Will allow flicking lever when easy place is enabled."),
