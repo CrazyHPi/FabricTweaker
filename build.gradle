@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.7-SNAPSHOT'
+    id 'fabric-loom' version "${loom_version}"
 }
 
 sourceCompatibility = JavaVersion.VERSION_21
@@ -36,11 +36,11 @@ dependencies {
 //    modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
 
     // malilib
-    modImplementation "fi.dy.masa.malilib:malilib-fabric-${project.minecraft_version}:${project.malilib_version}"
+    modImplementation "com.github.sakura-ryoko:malilib:${project.minecraft_version}-${project.malilib_version}"
     // litematica
     modImplementation "com.github.sakura-ryoko:litematica:${project.minecraft_version}-${project.litematica_version}"
     // minihud
-    modImplementation "com.github.sakura-ryoko:minihud:1.21-sakura.23"
+    modImplementation "com.github.sakura-ryoko:minihud:${project.minecraft_version}-${project.minihud_version}"
     // tweakeroo for compact test
     modRuntimeOnly "com.github.sakura-ryoko:tweakeroo:${project.minecraft_version}-${project.tweakeroo_version}"
 }
