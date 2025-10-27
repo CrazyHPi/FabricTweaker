@@ -15,6 +15,8 @@ import xyz.crazyh.fabrictweaker.utils.InventoryUtils;
 import xyz.crazyh.fabrictweaker.utils.WCItemRestriction;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 
 public class Configs implements IConfigHandler {
@@ -63,9 +65,9 @@ public class Configs implements IConfigHandler {
     }
 
     public static void loadFromFile() {
-        File configFile = new File(FileUtils.getConfigDirectory(), CONFIG_FILE_NAME);
-        if (configFile.exists() && configFile.isFile() && configFile.canRead()) {
-            JsonElement element = JsonUtils.parseJsonFile(configFile);
+        Path configFile = FileUtils.getConfigDirectoryAsPath().resolve(CONFIG_FILE_NAME);
+        if (Files.exists(configFile) && Files.isReadable(configFile)) {
+            JsonElement element = JsonUtils.parseJsonFileAsPath(configFile);
 
             if (element != null && element.isJsonObject()) {
                 JsonObject root = element.getAsJsonObject();
@@ -94,8 +96,12 @@ public class Configs implements IConfigHandler {
     }
 
     public static void saveToFile() {
-        File dir = FileUtils.getConfigDirectory();
-        if ((dir.exists() && dir.isDirectory()) || dir.mkdirs()) {
+        Path dir = FileUtils.getConfigDirectoryAsPath();
+        if (!Files.exists(dir)) {
+            FileUtils.createDirectoriesIfMissing(dir);
+        }
+
+        if (Files.isDirectory(dir)) {
             JsonObject root = new JsonObject();
 
             ConfigUtils.writeConfigBase(root, "General", General.OPTIONS);
@@ -104,7 +110,7 @@ public class Configs implements IConfigHandler {
             ConfigUtils.writeHotkeyToggleOptions(root, "TweakHotkeys", "Tweaks", FeatureToggle.VALUES);
             ConfigUtils.writeHotkeyToggleOptions(root, "DisableHotkeys", "Disables", DisableToggle.VALUES);
 
-            JsonUtils.writeJsonToFile(root, new File(dir, CONFIG_FILE_NAME));
+            JsonUtils.writeJsonToFileAsPath(root, dir.resolve(CONFIG_FILE_NAME));
         }
     }
 
