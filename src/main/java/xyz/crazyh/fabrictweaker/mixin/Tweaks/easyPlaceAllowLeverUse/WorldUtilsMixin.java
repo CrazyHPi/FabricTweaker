@@ -30,8 +30,7 @@ public abstract class WorldUtilsMixin {
     )
     private static void allowWhenSuccess(MinecraftClient mc, CallbackInfoReturnable<ActionResult> cir, @Local BlockPos pos) {
         if (FeatureToggle.EASY_PLACE_ALLOW_LEVER_USE.getBooleanValue()){
-            ClientPlayerEntity player = mc.player;
-            World world = player.getWorld();
+            World world = mc.world;
             Block block = world.getBlockState(pos).getBlock();
             if (block instanceof LeverBlock) {
                 cir.setReturnValue(ActionResult.PASS);
@@ -52,8 +51,7 @@ public abstract class WorldUtilsMixin {
         if (FeatureToggle.EASY_PLACE_ALLOW_LEVER_USE.getBooleanValue()){
             BlockHitResult trace = traceWrapper.getBlockHitResult();
             BlockPos pos = trace.getBlockPos();
-            ClientPlayerEntity player = mc.player;
-            World world = player.getWorld();
+            World world = mc.world;
             Block block = world.getBlockState(pos).getBlock();
             if (block instanceof LeverBlock) {
                 cir.setReturnValue(ActionResult.PASS);

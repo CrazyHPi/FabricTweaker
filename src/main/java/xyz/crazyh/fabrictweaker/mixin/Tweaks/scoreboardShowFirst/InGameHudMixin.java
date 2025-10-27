@@ -15,7 +15,7 @@ import java.util.Comparator;
 public abstract class InGameHudMixin {
     @Unique
     private static final Comparator<ScoreboardEntry> I_WILL_BE_ON_TOP = Comparator
-            .comparing((ScoreboardEntry entry) -> !entry.name().getString().equalsIgnoreCase(MinecraftClient.getInstance().player.getGameProfile().getName()))
+            .comparing((ScoreboardEntry entry) -> !entry.name().getString().equalsIgnoreCase(MinecraftClient.getInstance().player.getGameProfile().name()))
             .thenComparing(Comparator.comparing(ScoreboardEntry::value).reversed())
             .thenComparing(ScoreboardEntry::owner, String.CASE_INSENSITIVE_ORDER);
 

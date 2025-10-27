@@ -15,7 +15,7 @@
     "Tweaks.easyPlaceAllowBlocks.WorldUtilsMixin",
     "Tweaks.easyPlaceAllowLeverUse.WorldUtilsMixin",
     "Tweaks.easyPlaceAllowShulker.WorldUtilsMixin",
-    "Tweaks.fenceJumper.PlayerEntityMixin",
+    "Tweaks.fenceJumper.KeyboardInputMixin",
     "Tweaks.strictFakeSneaking.PlayerEntityMixin",
     "Tweaks.temp.WorldUtilsMixin",
     "Tweaks.threadedLitemtica.SchematicPlacementManagerMixin"

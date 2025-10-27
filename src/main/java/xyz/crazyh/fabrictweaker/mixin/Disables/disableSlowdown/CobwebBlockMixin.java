@@ -3,6 +3,7 @@ package xyz.crazyh.fabrictweaker.mixin.Disables.disableSlowdown;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CobwebBlock;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCollisionHandler;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -21,7 +22,7 @@ public abstract class CobwebBlockMixin {
             ),
             cancellable = true
     )
-    private void cobwebNoSlowdown(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo ci) {
+    private void cobwebNoSlowdown(BlockState state, World world, BlockPos pos, Entity entity, EntityCollisionHandler handler, boolean bl, CallbackInfo ci) {
         if (DisableToggle.DISABLE_PLAYER_SLOWDOWN.getBooleanValue()) {
             ci.cancel();
         }
