@@ -10,6 +10,7 @@
     "Disables.disableSlowdown.CobwebBlockMixin",
     "Disables.disableSlowdown.EntityMixin",
     "Disables.disableSlowdown.LivingEntityMixin",
+    "Disables.disableSlowdown.PlayerEntityMixin",
     "Events.MinecraftServerMixin",
     "Tweaks.autoPlaceShulkerAfterPick.WorldUtilsMixin",
     "Tweaks.autoRefreshMatList.KeyCallbacksMixin",

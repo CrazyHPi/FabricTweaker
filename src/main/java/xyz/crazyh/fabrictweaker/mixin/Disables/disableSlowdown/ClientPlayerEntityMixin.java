@@ -21,4 +21,32 @@ public abstract class ClientPlayerEntityMixin {
         }
         return original;
     }
+
+    @ModifyExpressionValue(
+            method = "applyMovementSpeedFactors",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z"
+            )
+    )
+    private boolean noUseItemSlowdown1(boolean original) {
+        if (DisableToggle.DISABLE_PLAYER_SLOWDOWN.getBooleanValue()) {
+            return false;
+        }
+        return original;
+    }
+
+    @ModifyExpressionValue(
+            method = "canStartSprinting",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z"
+            )
+    )
+    private boolean noUseItemSlowdown2(boolean original) {
+        if (DisableToggle.DISABLE_PLAYER_SLOWDOWN.getBooleanValue()) {
+            return false;
+        }
+        return original;
+    }
 }
