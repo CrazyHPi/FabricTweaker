@@ -4,6 +4,7 @@
   "package": "xyz.crazyh.fabrictweaker.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "Disables.disableLevitation.LivingEntityMixin",
     "Disables.disableMinihudPacketWarning.ServuxStructuresPacketMixin",
     "Disables.disablePartialCommandFeedback.GameModeCommandMixin",
     "Disables.disableSlowdown.CobwebBlockMixin",
@@ -24,7 +25,6 @@
     "Disables.disableBlockBreakingCooldown.ClientPlayerInteractionManagerMixin",
     "Disables.disableBossDarkenSky.GameRenderMixin",
     "Disables.disableExplosionSound.ClientWorldMixin",
-    "Disables.disableLevitation.ClientPlayerEntityMixin",
     "Disables.disableSlowdown.ClientPlayerEntityMixin",
     "Disables.disableSneakSlowdown.ClientPlayerEntityMixin",
     "Disables.disableWitherSound.ClientWorldMixin",
