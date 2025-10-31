@@ -25,6 +25,7 @@ public enum DisableToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
     DISABLE_BOSS_DARKEN_SKY("Disable Boss Darken Sky", false, "Disable darken sky when boss(wither) near by"),
     DISABLE_EXPLOSION_SOUND("Disable Explosion Sound", false, "Disable explosion sounds caused by tnt, creeper, wither skull"),
     DISABLE_LEVITATION("Disable Levitation", false, "Disable LEVITATION effect, basically cheating"),
+    DISABLE_LOCATOR_BAR("Disable Locator Bar", false, "Always display experience bar"),
     DISABLE_PLAYER_SLOWDOWN("Disable Player Slowdown", false, "Disable player related slowdown"),
     DISABLE_PARTIAL_COMMAND_FEEDBACK("Disable Partial Command Feedback", false, "Disable SOME command feedback, only works in single player"),
     DISABLE_SNEAK_SLOWDOWN("Disable Sneak Slowdown", false, "Disable slowdown effect when sneaking."),
