@@ -23,6 +23,7 @@
     "Tweaks.threadedLitemtica.SchematicPlacementManagerMixin"
   ],
   "client": [
+    "Disables.disableBellSound.ClientWorldMixin",
     "Disables.disableBlockBreakingCooldown.ClientPlayerInteractionManagerMixin",
     "Disables.disableBossDarkenSky.GameRenderMixin",
     "Disables.disableExplosionSound.ClientWorldMixin",
