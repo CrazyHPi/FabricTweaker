@@ -12,6 +12,7 @@ import fi.dy.masa.malilib.util.JsonUtils;
 import fi.dy.masa.malilib.util.restrictions.UsageRestriction;
 import xyz.crazyh.fabrictweaker.Reference;
 import xyz.crazyh.fabrictweaker.utils.InventoryUtils;
+import xyz.crazyh.fabrictweaker.utils.RandomUtils;
 import xyz.crazyh.fabrictweaker.utils.WCItemRestriction;
 
 import java.io.File;
@@ -47,6 +48,7 @@ public class Configs implements IConfigHandler {
     }
 
     public static class Lists {
+        public static final ConfigStringList DISABLE_SOUND_LIST = new ConfigStringList("Disable Sound List", ImmutableList.of(), "List of sound event identifier to be disabled, e.g. \"block.dispenser.dispense\"");
         public static final ConfigOptionList DROP_INV_LIST_TYPE = new ConfigOptionList("Drop Inventory List Type", UsageRestriction.ListType.WHITELIST, "The list type of dropping inventory");
         public static final ConfigStringList DROP_INV_BLACKLIST = new ConfigStringList("Drop Inventory Blacklist", ImmutableList.of("minecraft:diamond_pickaxe"), "Items that will not allowed to be dropped, wildcard \"*\" is supported, e.g. *_ore");
         public static final ConfigStringList DROP_INV_WHITELIST = new ConfigStringList("Drop Inventory Whitelist", ImmutableList.of("minecraft:stone", "minecraft:deepslate"), "Items that will be dropped, wildcard \"*\" is supported, e.g. *_ore");
@@ -55,6 +57,7 @@ public class Configs implements IConfigHandler {
         public static final WCItemRestriction EASY_PLACE_LIST = new WCItemRestriction();
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
+                DISABLE_SOUND_LIST,
                 DROP_INV_LIST_TYPE,
                 DROP_INV_BLACKLIST,
                 DROP_INV_WHITELIST,
@@ -91,6 +94,8 @@ public class Configs implements IConfigHandler {
                 ImmutableList.of(),
                 Lists.EASY_PLACE_ALLOW_BLOCKS_LIST.getStrings()
         );
+
+        RandomUtils.updateDisabledSound(Lists.DISABLE_SOUND_LIST.getStrings());
     }
 
     public static void saveToFile() {
