@@ -12,12 +12,10 @@ import xyz.crazyh.fabrictweaker.config.DisableToggle;
 
 @Mixin(ClientPlayerInteractionManager.class)
 public abstract class ClientPlayerInteractionManagerMixin {
-    @Shadow private int blockBreakingCooldown;
+    @Shadow
+    private int blockBreakingCooldown;
 
-    @Inject(
-            method = "updateBlockBreakingProgress",
-            at = @At("HEAD")
-    )
+    @Inject(method = "updateBlockBreakingProgress", at = @At("HEAD"))
     private void removeCooldown(BlockPos pos, Direction direction, CallbackInfoReturnable<Boolean> cir) {
         if (DisableToggle.DISABLE_BLOCK_BREAKING_COOLDOWN.getBooleanValue() && this.blockBreakingCooldown > 0) {
             this.blockBreakingCooldown = 0;

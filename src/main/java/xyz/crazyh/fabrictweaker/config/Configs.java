@@ -14,10 +14,8 @@ import xyz.crazyh.fabrictweaker.Reference;
 import xyz.crazyh.fabrictweaker.utils.InventoryUtils;
 import xyz.crazyh.fabrictweaker.utils.WCItemRestriction;
 
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 
 public class Configs implements IConfigHandler {
     private static final String CONFIG_FILE_NAME = Reference.MOD_ID + ".json";
@@ -54,7 +52,7 @@ public class Configs implements IConfigHandler {
         public static final ConfigStringList DROP_INV_WHITELIST = new ConfigStringList("Drop Inventory Whitelist", ImmutableList.of("minecraft:stone", "minecraft:deepslate"), "Items that will be dropped, wildcard \"*\" is supported, e.g. *_ore");
 
         public static final ConfigStringList EASY_PLACE_ALLOW_BLOCKS_LIST = new ConfigStringList("Easy Place Allow Blocks List", ImmutableList.of(), "Blocks that will be allowed when easy place is enabled. Wildcard \"*\" is supported.");
-        public static final WCItemRestriction EASY_PLACE_LIST = new WCItemRestriction();
+        public static final WCItemRestriction EASY_PLACE_LIST_RESTRICTION = new WCItemRestriction();
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
                 DROP_INV_LIST_TYPE,
@@ -81,15 +79,15 @@ public class Configs implements IConfigHandler {
         }
     }
 
-    public static void updateLists() {
+    public static void updateListsRestrictions() {
         InventoryUtils.ITEM_DROP_LIST.setListType((UsageRestriction.ListType) Lists.DROP_INV_LIST_TYPE.getOptionListValue());
         InventoryUtils.ITEM_DROP_LIST.setListContents(
                 Lists.DROP_INV_BLACKLIST.getStrings(),
                 Lists.DROP_INV_WHITELIST.getStrings()
         );
 
-        Lists.EASY_PLACE_LIST.setListType(UsageRestriction.ListType.WHITELIST);
-        Lists.EASY_PLACE_LIST.setListContents(
+        Lists.EASY_PLACE_LIST_RESTRICTION.setListType(UsageRestriction.ListType.WHITELIST);
+        Lists.EASY_PLACE_LIST_RESTRICTION.setListContents(
                 ImmutableList.of(),
                 Lists.EASY_PLACE_ALLOW_BLOCKS_LIST.getStrings()
         );
@@ -117,7 +115,7 @@ public class Configs implements IConfigHandler {
     @Override
     public void load() {
         loadFromFile();
-        updateLists();
+        updateListsRestrictions();
     }
 
     @Override

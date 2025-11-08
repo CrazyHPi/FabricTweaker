@@ -12,13 +12,13 @@ public abstract class WorldRendererMixin {
             method = "render",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/client/render/GameRenderer;getViewDistance()F"
+                    target = "Lnet/minecraft/client/option/GameOptions;getClampedViewDistance()I"
             )
     )
-    private float keepChunks(float original) {
+    private int keepChunks(int original) {
         if (Configs.General.CHUNK_RENDER_DISTANCE.getIntegerValue() == 0) {
             return original;
         }
-        return Configs.General.CHUNK_RENDER_DISTANCE.getIntegerValue() * 16;
+        return Configs.General.CHUNK_RENDER_DISTANCE.getIntegerValue();
     }
 }

@@ -20,11 +20,7 @@ public abstract class ClientPlayerInteractionManagerMixin {
     @Final
     private MinecraftClient client;
 
-    @Inject(
-            method = "attackBlock",
-            at = @At("HEAD"),
-            cancellable = true
-    )
+    @Inject(method = "attackBlock", at = @At("HEAD"), cancellable = true)
     private void cancelAttack(BlockPos pos, Direction direction, CallbackInfoReturnable<Boolean> cir) {
         if (FeatureToggle.PREVENT_DIG_BELOW.getBooleanValue()
                 && pos.getY() < client.player.getY() - Configs.General.PREVENT_DIG_DEPTH.getIntegerValue()
@@ -34,11 +30,7 @@ public abstract class ClientPlayerInteractionManagerMixin {
         }
     }
 
-    @Inject(
-            method = "updateBlockBreakingProgress",
-            at = @At("HEAD"),
-            cancellable = true
-    )
+    @Inject(method = "updateBlockBreakingProgress", at = @At("HEAD"), cancellable = true)
     private void cancelUpdate(BlockPos pos, Direction direction, CallbackInfoReturnable<Boolean> cir) {
         if (FeatureToggle.PREVENT_DIG_BELOW.getBooleanValue()
                 && pos.getY() < client.player.getY() - Configs.General.PREVENT_DIG_DEPTH.getIntegerValue()

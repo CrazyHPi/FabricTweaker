@@ -25,7 +25,7 @@ public abstract class WorldUtilsMixin {
         if (FeatureToggle.EASY_PLACE_ALLOW_BLOCKS.getBooleanValue()) {
             ClientPlayerEntity player = mc.player;
 
-            if (Configs.Lists.EASY_PLACE_LIST.isAllowed(player.getMainHandStack().getItem())) {
+            if (Configs.Lists.EASY_PLACE_LIST_RESTRICTION.isAllowed(player.getMainHandStack().getItem())) {
                 cir.setReturnValue(ActionResult.PASS); // return PASS will let vanilla handle the placement
             }
         }
@@ -44,7 +44,7 @@ public abstract class WorldUtilsMixin {
     private static void placeBlock1(MinecraftClient mc, CallbackInfoReturnable<ActionResult> cir) {
         if (FeatureToggle.EASY_PLACE_ALLOW_BLOCKS.getBooleanValue()) {
             ClientPlayerEntity player = mc.player;
-            if (Configs.Lists.EASY_PLACE_LIST.isAllowed(player.getMainHandStack().getItem())) {
+            if (Configs.Lists.EASY_PLACE_LIST_RESTRICTION.isAllowed(player.getMainHandStack().getItem())) {
                 cir.setReturnValue(ActionResult.PASS);
             }
         }

@@ -12,11 +12,7 @@ import xyz.crazyh.fabrictweaker.config.DisableToggle;
 
 @Mixin(ClientWorld.class)
 public abstract class ClientWorldMixin {
-    @Inject(
-            method = "playSound(DDDLnet/minecraft/sound/SoundEvent;Lnet/minecraft/sound/SoundCategory;FFZJ)V",
-            at = @At("HEAD"),
-            cancellable = true
-    )
+    @Inject(method = "playSound(DDDLnet/minecraft/sound/SoundEvent;Lnet/minecraft/sound/SoundCategory;FFZJ)V", at = @At("HEAD"), cancellable = true)
     private void cancelExplosionSound(double x, double y, double z, SoundEvent event, SoundCategory category, float volume, float pitch, boolean useDistance, long seed, CallbackInfo ci) {
         if (event == SoundEvents.ENTITY_GENERIC_EXPLODE.value() && DisableToggle.DISABLE_EXPLOSION_SOUND.getBooleanValue()) {
             ci.cancel();

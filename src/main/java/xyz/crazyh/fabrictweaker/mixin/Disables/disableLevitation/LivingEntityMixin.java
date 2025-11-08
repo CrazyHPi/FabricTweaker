@@ -15,7 +15,7 @@ import xyz.crazyh.fabrictweaker.config.DisableToggle;
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
     @Inject(method = "getStatusEffect", at = @At("HEAD"), cancellable = true)
-    private void noLeviattion(RegistryEntry<StatusEffect> effect, CallbackInfoReturnable<StatusEffectInstance> cir) {
+    private void noLevitation(RegistryEntry<StatusEffect> effect, CallbackInfoReturnable<StatusEffectInstance> cir) {
         if (((LivingEntity) (Object) this) instanceof ClientPlayerEntity
                 && effect == StatusEffects.LEVITATION
                 && DisableToggle.DISABLE_LEVITATION.getBooleanValue()) {
