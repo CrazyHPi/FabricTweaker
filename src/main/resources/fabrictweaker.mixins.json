@@ -33,6 +33,7 @@
     "Disables.disableLocatorBar.InGameHudMixin",
     "Disables.disableSlowdown.ClientPlayerEntityMixin",
     "Disables.disableSneakSlowdown.ClientPlayerEntityMixin",
+    "Disables.disableSound.ClientWorldMixin",
     "Disables.disableWitherSound.ClientWorldMixin",
     "Events.MinecraftClientMixin",
     "Tweaks.additionalBlockBreakingCooldown.ClientPlayerInteractionManagerMixin",

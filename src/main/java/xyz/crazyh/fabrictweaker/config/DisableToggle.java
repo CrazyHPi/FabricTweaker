@@ -31,6 +31,7 @@ public enum DisableToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
     DISABLE_PLAYER_SLOWDOWN("Disable Player Slowdown", false, "Disable player related slowdown"),
     DISABLE_PARTIAL_COMMAND_FEEDBACK("Disable Partial Command Feedback", false, "Disable SOME command feedback, only works in single player"),
     DISABLE_SNEAK_SLOWDOWN("Disable Sneak Slowdown", false, "Disable slowdown effect when sneaking."),
+    DISABLE_SOUND("Disable Sound", false, "Disable sound events that are in the \"Disable Sound List\""),
     DISABLE_WITHER_SOUND("Disable Wither Sound", false, "Disable wither ambient and hurt sound, not including skull explode sound"),
     // this should be temp rule
     DISABLE_MINIHUD_PACKET_WARNING("Disable MiniHud Warning", false, "what is this???"),
