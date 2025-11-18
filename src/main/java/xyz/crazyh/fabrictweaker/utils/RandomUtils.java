@@ -15,6 +15,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import xyz.crazyh.fabrictweaker.config.Configs;
+import xyz.crazyh.fabrictweaker.config.DisableToggle;
 
 import java.util.HashSet;
 import java.util.List;
@@ -104,7 +105,7 @@ public class RandomUtils {
     private static final Set<SoundEvent> DISABLED_SOUND = new HashSet<>();
 
     public static boolean shouldMuteSound(SoundEvent sound) {
-        return DISABLED_SOUND.contains(sound);
+        return DisableToggle.DISABLE_SOUND.getBooleanValue() && DISABLED_SOUND.contains(sound);
     }
 
     public static void updateDisabledSound(List<String> soundList) {
