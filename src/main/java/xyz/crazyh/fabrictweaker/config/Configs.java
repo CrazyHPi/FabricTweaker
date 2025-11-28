@@ -32,6 +32,7 @@ public class Configs implements IConfigHandler {
         public static final ConfigInteger PREVENT_PLACE_DEPTH = new ConfigInteger("Prevent Place Depth", 0, 0, 16, "The amount of blocks allowed by tweak PreventPlaceBelow, default=0 won't allow any block below you get placed");
         public static final ConfigBoolean SEND_COORDS_TO_PUBLIC_CHAT = new ConfigBoolean("Send Coords to Public Chat", false, "Whether to send the coords to the public chat. If False, it will only display it in client chat hud.");
         public static final ConfigDouble SNEAK_HEIGHT = new ConfigDouble("Strict Fake Sneak Height", 0.001, 0.0001, 10.0, "The tolerance fall height allowed by Strict Fake Sneaking");
+        public static final ConfigDouble STEP_UP_HEIGHT = new ConfigDouble("Step Up Height", 1.125, 0, 10, "Step up height value for tweak Step Up");
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
                 ADDITIONAL_COOLDOWN_VALUE,
