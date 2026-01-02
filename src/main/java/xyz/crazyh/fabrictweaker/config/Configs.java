@@ -44,7 +44,8 @@ public class Configs implements IConfigHandler {
                 PREVENT_DIG_DEPTH,
                 PREVENT_PLACE_DEPTH,
                 SEND_COORDS_TO_PUBLIC_CHAT,
-                SNEAK_HEIGHT
+                SNEAK_HEIGHT,
+                STEP_UP_HEIGHT
         );
     }
 
