@@ -7,6 +7,7 @@ import fi.dy.masa.malilib.hotkeys.KeyAction;
 import net.minecraft.client.MinecraftClient;
 import xyz.crazyh.fabrictweaker.config.gui.GuiConfigs;
 import xyz.crazyh.fabrictweaker.utils.InventoryUtils;
+import xyz.crazyh.fabrictweaker.utils.PacketUtils;
 import xyz.crazyh.fabrictweaker.utils.RandomUtils;
 
 import java.util.function.BiConsumer;
@@ -17,6 +18,15 @@ public class Callbacks {
         setHotkeyCallback(Hotkeys.DROP_INVENTORY, InventoryUtils::dropInv);
         setHotkeyCallback(Hotkeys.REFRESH_MAT_LIST, RandomUtils::refreshMaterialList);
         setHotkeyCallback(Hotkeys.SHARE_COORDS, RandomUtils::sendCoords);
+
+        FeatureToggle.PACKET_DALAYER.setValueChangeCallback(
+                config -> {
+                    if (!config.getBooleanValue()) {
+                        PacketUtils.sendDelayedPacket();
+                    }
+                    PacketUtils.clearQueue();
+                }
+        );
         FeatureToggle.THREADED_LITEMATICA_UPDATE.setValueChangeCallback(config -> Configs.Generic.LOAD_ENTIRE_SCHEMATICS.setBooleanValue(config.getBooleanValue()));
     }
 

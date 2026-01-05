@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import xyz.crazyh.fabrictweaker.config.Configs;
 import xyz.crazyh.fabrictweaker.utils.InventoryUtils;
+import xyz.crazyh.fabrictweaker.utils.PacketUtils;
 
 
 public class FabricTweaker implements ModInitializer {
@@ -37,7 +38,7 @@ public class FabricTweaker implements ModInitializer {
 
     // client disconnection event
     public static void onClientDisconnected(DisconnectionInfo disconnectionInfo) {
-
+        PacketUtils.clearQueue();
     }
 
     // game stop event, called before game client and server stop

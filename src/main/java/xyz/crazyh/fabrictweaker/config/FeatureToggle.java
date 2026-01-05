@@ -29,6 +29,7 @@ public enum FeatureToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
     // might remove this
     EASY_PLACE_ALLOW_SHULKER("Easy Place Allow ShulkerBox", false, "Easy place mode's placement restriction will not check for shulkerbox"),
     FENCE_JUMPER("Fence Jumper", false, "You can jump over fence and wall."),
+    PACKET_DALAYER("Packet Delayer", false, "Easy bedrock breaker. Delay certain packets (dig, place...) from client to server."),
     PREVENT_DIG_BELOW("Prevent Dig Below", false, "Prevents you from digging blocks that are lower than you, sneak to override"),
     PREVENT_PLACE_BELOW("Prevent Place Below", false, "Prevents you from placing blocks that are lower than you, sneak to override"),
     SCOREBOARD_ON_TOP("Scoreboard On Top", false, "Shows my own score on the top of the scoreboard"),

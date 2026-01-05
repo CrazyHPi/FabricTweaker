@@ -42,6 +42,7 @@
     "Tweaks.chunkKeepDistance.WorldRendererMixin",
     "Tweaks.creativeOpTabAlwaysEnabled.CreativeInventoryScreenMixin",
     "Tweaks.fixedLanPort.OpenToLanScreenMixin",
+    "Tweaks.packetDelayer.ClientCommonNetworkHandlerMixin",
     "Tweaks.preventDigBelow.ClientPlayerInteractionManagerMixin",
     "Tweaks.preventPlaceBelow.ClientPlayerInteractionManagerMixin",
     "Tweaks.scoreboardShowFirst.InGameHudMixin",
