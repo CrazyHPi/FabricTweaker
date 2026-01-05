@@ -12,6 +12,7 @@
     "Disables.disableSlowdown.EntityMixin",
     "Disables.disableSlowdown.LivingEntityMixin",
     "Disables.disableSlowdown.PlayerEntityMixin",
+    "Events.ClientConnectionMixin",
     "Events.MinecraftServerMixin",
     "Tweaks.autoPlaceShulkerAfterPick.WorldUtilsMixin",
     "Tweaks.autoRefreshMatList.KeyCallbacksMixin",

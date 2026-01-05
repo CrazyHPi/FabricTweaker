@@ -3,6 +3,7 @@ package xyz.crazyh.fabrictweaker;
 import fi.dy.masa.malilib.event.InitializationHandler;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.network.DisconnectionInfo;
 import net.minecraft.server.MinecraftServer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,6 +33,11 @@ public class FabricTweaker implements ModInitializer {
 
             minecraftServer = null;
         }
+    }
+
+    // client disconnection event
+    public static void onClientDisconnected(DisconnectionInfo disconnectionInfo) {
+
     }
 
     // game stop event, called before game client and server stop
