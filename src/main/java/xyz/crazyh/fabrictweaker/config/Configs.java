@@ -12,7 +12,7 @@ import fi.dy.masa.malilib.util.JsonUtils;
 import fi.dy.masa.malilib.util.restrictions.UsageRestriction;
 import xyz.crazyh.fabrictweaker.Reference;
 import xyz.crazyh.fabrictweaker.utils.InventoryUtils;
-import xyz.crazyh.fabrictweaker.utils.RandomUtils;
+import xyz.crazyh.fabrictweaker.utils.SoundUtils;
 import xyz.crazyh.fabrictweaker.utils.WCItemRestriction;
 
 import java.nio.file.Files;
@@ -97,7 +97,7 @@ public class Configs implements IConfigHandler {
                 Lists.EASY_PLACE_ALLOW_BLOCKS_LIST.getStrings()
         );
 
-        RandomUtils.updateDisabledSound(Lists.DISABLE_SOUND_LIST.getStrings());
+        SoundUtils.updateDisabledSound(Lists.DISABLE_SOUND_LIST.getStrings());
     }
 
     public static void saveToFile() {

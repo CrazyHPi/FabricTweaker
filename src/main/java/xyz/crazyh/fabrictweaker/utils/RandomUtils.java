@@ -10,15 +10,9 @@ import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.registry.Registries;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import xyz.crazyh.fabrictweaker.config.Configs;
-import xyz.crazyh.fabrictweaker.config.DisableToggle;
 
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class RandomUtils {
@@ -98,23 +92,4 @@ public class RandomUtils {
 
     }
 
-    public static SoundEvent getSoundEventFromStr(String sound) {
-        return Registries.SOUND_EVENT.get(Identifier.of(sound));
-    }
-
-    private static final Set<SoundEvent> DISABLED_SOUND = new HashSet<>();
-
-    public static boolean shouldMuteSound(SoundEvent sound) {
-        return DisableToggle.DISABLE_SOUND.getBooleanValue() && DISABLED_SOUND.contains(sound);
-    }
-
-    public static void updateDisabledSound(List<String> soundList) {
-        DISABLED_SOUND.clear();
-        for (String sound : soundList) {
-            SoundEvent soundEvent = getSoundEventFromStr(sound);
-            if (soundEvent != null) {
-                DISABLED_SOUND.add(soundEvent);
-            }
-        }
-    }
 }
