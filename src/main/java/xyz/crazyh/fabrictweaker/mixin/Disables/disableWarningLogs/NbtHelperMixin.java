@@ -16,7 +16,8 @@ public abstract class NbtHelperMixin {
             at = @At(
                     value = "INVOKE",
                     target = "Lorg/slf4j/Logger;warn(Ljava/lang/String;[Ljava/lang/Object;)V"
-            )
+            ),
+            remap = false
     )
     private static boolean shouldWarnUnknownNbt(Logger instance, String s, Object[] objects) {
         return !DisableToggle.DISABLE_WARNING_LOGS.getBooleanValue();

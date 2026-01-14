@@ -34,7 +34,8 @@ public abstract class ClientPlayNetworkHandlerMixin {
             at = @At(
                     value = "INVOKE",
                     target = "Lorg/slf4j/Logger;warn(Ljava/lang/String;Ljava/lang/Object;)V"
-            )
+            ),
+            remap = false
     )
     private boolean shouldWarnUnknownScoreBoard(Logger instance, String s, Object o) {
         return !DisableToggle.DISABLE_WARNING_LOGS.getBooleanValue();
@@ -60,7 +61,8 @@ public abstract class ClientPlayNetworkHandlerMixin {
             at = @At(
                     value = "INVOKE",
                     target = "Lorg/slf4j/Logger;warn(Ljava/lang/String;)V"
-            )
+            ),
+            remap = false
     )
     private boolean shouldWarnUnknownEntity(Logger instance, String s) {
         return !DisableToggle.DISABLE_WARNING_LOGS.getBooleanValue();
@@ -80,7 +82,8 @@ public abstract class ClientPlayNetworkHandlerMixin {
             at = @At(
                     value = "INVOKE",
                     target = "Lorg/slf4j/Logger;warn(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V"
-            )
+            ),
+            remap = false
     )
     private boolean shouldWarnUnknownPlayer(Logger instance, String s, Object o1, Object o2) {
         return !DisableToggle.DISABLE_WARNING_LOGS.getBooleanValue();
