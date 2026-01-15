@@ -2,9 +2,6 @@ plugins {
     id 'fabric-loom' version "${loom_version}"
 }
 
-sourceCompatibility = JavaVersion.VERSION_21
-targetCompatibility = JavaVersion.VERSION_21
-
 version = project.mod_version
 group = project.maven_group
 
@@ -19,6 +16,7 @@ repositories {
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
+    maven { url = "https://masa.dy.fi/maven/sakura-ryoko"} // sakura-ryoko's fork maven
     maven { url 'https://masa.dy.fi/maven' }
     maven { url 'https://maven.terraformersmc.com/releases/' }
     maven { url 'https://jitpack.io' }
@@ -35,14 +33,26 @@ dependencies {
     // for dev testing
 //    modImplementation "com.terraformersmc:modmenu:${project.mod_menu_version}"
 
+    // jitpack
+//    // malilib
+//    modImplementation "com.github.sakura-ryoko:malilib:${project.minecraft_version}-${project.malilib_version}"
+//    // litematica
+//    modImplementation "com.github.sakura-ryoko:litematica:${project.minecraft_version}-${project.litematica_version}"
+//    // minihud
+//    modImplementation "com.github.sakura-ryoko:minihud:${project.minecraft_version}-${project.minihud_version}"
+//    // tweakeroo for compact test
+//    modRuntimeOnly "com.github.sakura-ryoko:tweakeroo:${project.minecraft_version}-${project.tweakeroo_version}"
+    
+    // sr's from masa's maven
     // malilib
-    modImplementation "com.github.sakura-ryoko:malilib:${project.minecraft_version}-${project.malilib_version}"
+    modImplementation "fi.dy.masa.malilib:malilib-fabric-${project.minecraft_version}:${project.malilib_version}"
     // litematica
-    modImplementation "com.github.sakura-ryoko:litematica:${project.minecraft_version}-${project.litematica_version}"
+    modImplementation "fi.dy.masa.litematica:litematica-fabric-${project.minecraft_version}:${project.litematica_version}"
     // minihud
-    modImplementation "com.github.sakura-ryoko:minihud:${project.minecraft_version}-${project.minihud_version}"
+    modImplementation "fi.dy.masa.minihud:minihud-fabric-${project.minecraft_version}:${project.minihud_version}"
     // tweakeroo for compact test
-    modRuntimeOnly "com.github.sakura-ryoko:tweakeroo:${project.minecraft_version}-${project.tweakeroo_version}"
+    modRuntimeOnly "fi.dy.masa.tweakeroo:tweakeroo-fabric-${project.minecraft_version}:${project.tweakeroo_version}"
+    
 }
 
 processResources {
@@ -65,6 +75,7 @@ tasks.withType(JavaCompile).configureEach {
     // see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
     // If Javadoc is generated, this must be specified in that task too.
     it.options.encoding = "UTF-8"
+    it.options.release = 21
     if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
         it.options.release.set(targetJavaVersion)
     }
