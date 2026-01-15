@@ -11,6 +11,7 @@ import fi.dy.masa.malilib.util.FileUtils;
 import fi.dy.masa.malilib.util.JsonUtils;
 import fi.dy.masa.malilib.util.restrictions.UsageRestriction;
 import xyz.crazyh.fabrictweaker.Reference;
+import xyz.crazyh.fabrictweaker.utils.BlockUtils;
 import xyz.crazyh.fabrictweaker.utils.InventoryUtils;
 import xyz.crazyh.fabrictweaker.utils.SoundUtils;
 import xyz.crazyh.fabrictweaker.utils.WCItemRestriction;
@@ -58,12 +59,15 @@ public class Configs implements IConfigHandler {
         public static final ConfigStringList EASY_PLACE_ALLOW_BLOCKS_LIST = new ConfigStringList("Easy Place Allow Blocks List", ImmutableList.of(), "Blocks that will be allowed when easy place is enabled. Wildcard \"*\" is supported.");
         public static final WCItemRestriction EASY_PLACE_LIST_RESTRICTION = new WCItemRestriction();
 
+        public static final ConfigStringList PERI_OUTLINE_BLOCK_LIST = new ConfigStringList("Perimeter Outline Block List", ImmutableList.of("glowstone"), "Block list for peri wall helper");
+
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
                 DISABLE_SOUND_LIST,
                 DROP_INV_LIST_TYPE,
                 DROP_INV_BLACKLIST,
                 DROP_INV_WHITELIST,
-                EASY_PLACE_ALLOW_BLOCKS_LIST
+                EASY_PLACE_ALLOW_BLOCKS_LIST,
+                PERI_OUTLINE_BLOCK_LIST
         );
     }
 
@@ -98,6 +102,8 @@ public class Configs implements IConfigHandler {
         );
 
         SoundUtils.updateDisabledSound(Lists.DISABLE_SOUND_LIST.getStrings());
+
+        BlockUtils.updatePeriWallBlocks(Lists.PERI_OUTLINE_BLOCK_LIST.getStrings());
     }
 
     public static void saveToFile() {
