@@ -50,6 +50,7 @@
     "Tweaks.periWallHelper.ClientPlayerInteractionManagerMixin",
     "Tweaks.preventDigBelow.ClientPlayerInteractionManagerMixin",
     "Tweaks.preventPlaceBelow.ClientPlayerInteractionManagerMixin",
+    "Tweaks.safeGameModeSwitcher.GameModeSwitcherScreenMixin",
     "Tweaks.scoreboardShowFirst.InGameHudMixin",
     "Tweaks.stepUp.ClientPlayerEntityMixin"
   ],
