@@ -22,7 +22,7 @@
       "xyz.crazyh.fabrictweaker.compact.modmenu.ModMenuImpl"
     ]
   },
-  "accessWidener": "fabrictweaker.classtweaker",
+  "accessWidener": "fabrictweaker.aw",
   "mixins": [
     "fabrictweaker.mixins.json"
   ],

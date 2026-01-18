@@ -56,7 +56,7 @@ dependencies {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/fabrictweaker.classtweaker")
+    accessWidenerPath = file("src/main/resources/fabrictweaker.aw")
 }
 
 processResources {
