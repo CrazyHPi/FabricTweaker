@@ -33,7 +33,7 @@ public enum FeatureToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
     PERI_WALL_HELPER("Peri Wall Helper", false, "Prevents player from mining underneath the block types\nspecified in the Perimeter Outline Blocks list."),
     PREVENT_DIG_BELOW("Prevent Dig Below", false, "Prevents you from digging blocks that are lower than you, sneak to override"),
     PREVENT_PLACE_BELOW("Prevent Place Below", false, "Prevents you from placing blocks that are lower than you, sneak to override"),
-    SAFE_GAME_MODE_SWITCHER("Save Game Mode Switcher", false, "Only allow game mode switcher switch between survival and spectator."),
+    SAFE_GAME_MODE_SWITCHER("Safe Game Mode Switcher", false, "Only allow game mode switcher switch between survival and spectator."),
     SCOREBOARD_ON_TOP("Scoreboard On Top", false, "Shows my own score on the top of the scoreboard"),
     STEP_UP("Step Up", false, "Increase player step up height: 0.6 -> 1.1"),
     STRICT_FAKE_SNEAKING("Strict Fake Sneaking", false, "Fake sneaking but you wont fall from edge at all."),
