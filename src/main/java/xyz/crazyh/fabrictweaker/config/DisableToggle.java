@@ -24,6 +24,7 @@ public enum DisableToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
     DISABLE_BELL_SOUND("Disable Bell Sound", false, "Disable bell sound"),
     DISABLE_BLOCK_BREAKING_COOLDOWN("Disable Block Breaking Cooldown", false, "Remove 5gt delay between breaking two non-instant mined block"),
     DISABLE_BOSS_DARKEN_SKY("Disable Boss Darken Sky", false, "Disable darken sky when boss(wither) near by"),
+    DISABLE_DAMAGE_FLINCH("Disable Damage Flinch", false, "Remove the view flinch effect when player takes damage"),
     DISABLE_END_FLASH("Disable End Flash", false, "Disable that annoying purple thingy randomly flashing when in the end dimension"),
     DISABLE_EXPLOSION_SOUND("Disable Explosion Sound", false, "Disable explosion sounds caused by tnt, creeper, wither skull"),
     DISABLE_LEVITATION("Disable Levitation", false, "Disable LEVITATION effect, basically cheating"),
