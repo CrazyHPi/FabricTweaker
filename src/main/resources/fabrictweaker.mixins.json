@@ -30,7 +30,7 @@
     "Disables.disableBellSound.ClientWorldMixin",
     "Disables.disableBlockBreakingCooldown.ClientPlayerInteractionManagerMixin",
     "Disables.disableBossDarkenSky.GameRenderMixin",
-    "Disables.disableDamageFlinch.ClientPlayNetworkHandlerMixin",
+    "Disables.disableDamageFlinch.GameRendererMixin",
     "Disables.disableEndFlush.ClientWorldMixin",
     "Disables.disableEndFlush.SkyRenderingMixin",
     "Disables.disableExplosionSound.ClientWorldMixin",
