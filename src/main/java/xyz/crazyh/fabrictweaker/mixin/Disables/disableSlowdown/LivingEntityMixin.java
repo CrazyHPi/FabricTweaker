@@ -11,7 +11,7 @@ import xyz.crazyh.fabrictweaker.config.DisableToggle;
 public abstract class LivingEntityMixin {
     @SuppressWarnings("ConstantConditions")
     @ModifyExpressionValue(
-            method = "travelInFluid",
+            method = "travelInWater",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/entity/LivingEntity;getAttributeValue(Lnet/minecraft/registry/entry/RegistryEntry;)D"
