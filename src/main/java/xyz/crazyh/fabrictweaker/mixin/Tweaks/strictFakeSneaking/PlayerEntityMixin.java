@@ -36,6 +36,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 //        return this.clipAtLedge();
 //    }
 
+    @SuppressWarnings("ConstantConditions")
     @ModifyExpressionValue(
             method = "adjustMovementForSneaking",
             at = @At(

@@ -6,7 +6,6 @@ import fi.dy.masa.litematica.util.WorldUtils;
 import net.minecraft.block.Block;
 import net.minecraft.block.LeverBlock;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -19,6 +18,7 @@ import xyz.crazyh.fabrictweaker.config.FeatureToggle;
 
 @Mixin(WorldUtils.class)
 public abstract class WorldUtilsMixin {
+    @SuppressWarnings("DataFlowIssue")
     @Inject(
             method = "doEasyPlaceAction",
             at = @At(
@@ -29,7 +29,7 @@ public abstract class WorldUtilsMixin {
             remap = false
     )
     private static void allowWhenSuccess(MinecraftClient mc, CallbackInfoReturnable<ActionResult> cir, @Local BlockPos pos) {
-        if (FeatureToggle.EASY_PLACE_ALLOW_LEVER_USE.getBooleanValue()){
+        if (FeatureToggle.EASY_PLACE_ALLOW_LEVER_USE.getBooleanValue()) {
             World world = mc.world;
             Block block = world.getBlockState(pos).getBlock();
             if (block instanceof LeverBlock) {
@@ -38,6 +38,7 @@ public abstract class WorldUtilsMixin {
         }
     }
 
+    @SuppressWarnings("DataFlowIssue")
     @Inject(
             method = "doEasyPlaceAction",
             at = @At(
@@ -48,7 +49,7 @@ public abstract class WorldUtilsMixin {
             cancellable = true
     )
     private static void allowWhenFailed(MinecraftClient mc, CallbackInfoReturnable<ActionResult> cir, @Local RayTraceUtils.RayTraceWrapper traceWrapper) {
-        if (FeatureToggle.EASY_PLACE_ALLOW_LEVER_USE.getBooleanValue()){
+        if (FeatureToggle.EASY_PLACE_ALLOW_LEVER_USE.getBooleanValue()) {
             BlockHitResult trace = traceWrapper.getBlockHitResult();
             BlockPos pos = trace.getBlockPos();
             World world = mc.world;

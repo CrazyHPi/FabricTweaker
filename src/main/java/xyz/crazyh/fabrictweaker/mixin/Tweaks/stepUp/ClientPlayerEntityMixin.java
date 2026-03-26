@@ -17,6 +17,7 @@ public abstract class ClientPlayerEntityMixin extends AbstractClientPlayerEntity
         super(world, profile);
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     public float getStepHeight() {
         if (FeatureToggle.STEP_UP.getBooleanValue() && ! ((ClientPlayerEntity) (Object)this).isSneaking()){

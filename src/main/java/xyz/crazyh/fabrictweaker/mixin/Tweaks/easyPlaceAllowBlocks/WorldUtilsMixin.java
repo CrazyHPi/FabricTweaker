@@ -13,6 +13,7 @@ import xyz.crazyh.fabrictweaker.config.FeatureToggle;
 
 @Mixin(WorldUtils.class)
 public abstract class WorldUtilsMixin {
+    @SuppressWarnings("DataFlowIssue")
     @Inject(
             method = "doEasyPlaceAction",
             at = @At(
@@ -31,7 +32,7 @@ public abstract class WorldUtilsMixin {
         }
     }
 
-
+    @SuppressWarnings("DataFlowIssue")
     @Inject(
             method = "doEasyPlaceAction",
             at = @At(

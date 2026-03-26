@@ -20,6 +20,7 @@ import xyz.crazyh.fabrictweaker.utils.RandomUtils;
 @Mixin(WorldUtils.class)
 public abstract class WorldUtilsMixin {
 
+    @SuppressWarnings("DataFlowIssue")
     // prevent falling block mid-air placement
     @Inject(
             method = "doEasyPlaceAction",

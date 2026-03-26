@@ -14,6 +14,7 @@ import xyz.crazyh.fabrictweaker.config.FeatureToggle;
 @Mixin(GameModeSwitcherScreen.class)
 public abstract class GameModeSwitcherScreenMixin {
 
+    @SuppressWarnings("DataFlowIssue")
     @Inject(
             method = "apply(Lnet/minecraft/client/MinecraftClient;Lnet/minecraft/client/gui/screen/GameModeSwitcherScreen$GameModeSelection;)V",
             at = @At(

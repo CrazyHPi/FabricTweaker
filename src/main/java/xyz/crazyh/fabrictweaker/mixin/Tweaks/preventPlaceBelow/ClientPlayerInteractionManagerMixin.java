@@ -23,6 +23,7 @@ public abstract class ClientPlayerInteractionManagerMixin {
     @Final
     private MinecraftClient client;
 
+    @SuppressWarnings("DataFlowIssue")
     @Inject(method = "interactBlock", at = @At("HEAD"), cancellable = true)
     private void cancelPlace(ClientPlayerEntity player, Hand hand, BlockHitResult hitResult, CallbackInfoReturnable<ActionResult> cir) {
         BlockPos pos = hitResult.getBlockPos();

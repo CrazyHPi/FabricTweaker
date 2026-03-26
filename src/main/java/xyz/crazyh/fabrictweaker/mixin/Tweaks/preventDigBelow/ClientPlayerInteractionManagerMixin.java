@@ -20,6 +20,7 @@ public abstract class ClientPlayerInteractionManagerMixin {
     @Final
     private MinecraftClient client;
 
+    @SuppressWarnings("DataFlowIssue")
     @Inject(method = "attackBlock", at = @At("HEAD"), cancellable = true)
     private void cancelAttack(BlockPos pos, Direction direction, CallbackInfoReturnable<Boolean> cir) {
         if (FeatureToggle.PREVENT_DIG_BELOW.getBooleanValue()
@@ -30,6 +31,7 @@ public abstract class ClientPlayerInteractionManagerMixin {
         }
     }
 
+    @SuppressWarnings("DataFlowIssue")
     @Inject(method = "updateBlockBreakingProgress", at = @At("HEAD"), cancellable = true)
     private void cancelUpdate(BlockPos pos, Direction direction, CallbackInfoReturnable<Boolean> cir) {
         if (FeatureToggle.PREVENT_DIG_BELOW.getBooleanValue()

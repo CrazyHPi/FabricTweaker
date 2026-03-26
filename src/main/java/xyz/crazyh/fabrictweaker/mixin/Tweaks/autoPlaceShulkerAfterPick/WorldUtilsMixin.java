@@ -15,6 +15,7 @@ import xyz.crazyh.fabrictweaker.utils.RandomUtils;
 
 @Mixin(WorldUtils.class)
 public abstract class WorldUtilsMixin {
+    @SuppressWarnings("DataFlowIssue")
     @Inject(
             method = "doEasyPlaceAction",
             at = @At(
