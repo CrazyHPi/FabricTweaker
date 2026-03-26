@@ -4,11 +4,17 @@ import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Constant;
+import org.spongepowered.asm.mixin.injection.ModifyConstant;
 import xyz.crazyh.fabrictweaker.config.DisableToggle;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
+    @Shadow
+    public abstract float getMovementSpeed();
+
     @SuppressWarnings("ConstantConditions")
     @ModifyExpressionValue(
             method = "travelInWater",
@@ -20,6 +26,18 @@ public abstract class LivingEntityMixin {
     private double noInWaterSlowdown(double original) {
         if (DisableToggle.DISABLE_PLAYER_SLOWDOWN.getBooleanValue() && ((LivingEntity) (Object) this) instanceof ClientPlayerEntity) {
             return 1;
+        }
+        return original;
+    }
+
+    @SuppressWarnings("ConstantConditions")
+    @ModifyConstant(
+            method = "travelInLava",
+            constant = @Constant(floatValue = 0.02f)
+    )
+    private float noInLavaSlowdown(float original) {
+        if (DisableToggle.DISABLE_PLAYER_SLOWDOWN.getBooleanValue() && ((LivingEntity) (Object) this) instanceof ClientPlayerEntity) {
+            return this.getMovementSpeed();
         }
         return original;
     }
