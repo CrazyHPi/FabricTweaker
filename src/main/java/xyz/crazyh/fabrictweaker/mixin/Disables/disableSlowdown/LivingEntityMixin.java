@@ -17,7 +17,10 @@ public abstract class LivingEntityMixin {
 
     @SuppressWarnings("ConstantConditions")
     @ModifyExpressionValue(
+            //? if 1.21.11
             method = "travelInWater",
+            //? if 1.21.10
+            //method = "travelInFluid",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/entity/LivingEntity;getAttributeValue(Lnet/minecraft/registry/entry/RegistryEntry;)D"
@@ -32,8 +35,11 @@ public abstract class LivingEntityMixin {
 
     @SuppressWarnings("ConstantConditions")
     @ModifyConstant(
-            method = "travelInLava",
-            constant = @Constant(floatValue = 0.02f)
+            //? if 1.21.11
+            method = "travelInWater",
+            //? if 1.21.10
+            //method = "travelInFluid",
+            constant = @Constant(floatValue = 0.02f/*? if 1.21.10 >>+ ', ordinal = 1'*//*, ordinal = 1*/)
     )
     private float noInLavaSlowdown(float original) {
         if (DisableToggle.DISABLE_PLAYER_SLOWDOWN.getBooleanValue() && ((LivingEntity) (Object) this) instanceof ClientPlayerEntity) {
