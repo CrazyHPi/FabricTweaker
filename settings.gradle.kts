@@ -21,4 +21,4 @@ stonecutter {
     }
 }
 
-rootProject.name = "Template"
+rootProject.name = "FabricTweaker"
