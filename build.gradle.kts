@@ -1,5 +1,5 @@
 plugins {
-    id ("net.fabricmc.fabric-loom-remap")
+    id("net.fabricmc.fabric-loom-remap")
 }
 
 version = "${property("mod.version")}+${sc.current.version}"
@@ -19,10 +19,10 @@ repositories {
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
-    maven ("https://masa.dy.fi/maven/sakura-ryoko") // sakura-ryoko's fork maven
-    maven ("https://masa.dy.fi/maven") // masa's maven
-    maven ("https://maven.terraformersmc.com/releases") //mod menu
-    maven ("https://maven.fallenbreath.me/releases") // conditional mixin
+    maven("https://masa.dy.fi/maven/sakura-ryoko") // sakura-ryoko's fork maven
+    maven("https://masa.dy.fi/maven") // masa's maven
+    maven("https://maven.terraformersmc.com/releases") //mod menu
+    maven("https://maven.fallenbreath.me/releases") // conditional mixin
 //    maven ("https://jitpack.io") // jitpack, ppl not used
 }
 
@@ -61,9 +61,16 @@ dependencies {
 
 }
 
+val accesswidener = when {
+    sc.eval(sc.current.version, "1.21") -> "1.21.aw"
+    sc.eval(sc.current.version, ">=1.21.10") -> "1.21.10.aw"
+
+    else -> "empty.aw"
+}
+
 loom {
 //    fabricModJsonPath = rootProject.file("src/main/resources/fabric.mod.json")
-    accessWidenerPath = rootProject.file("src/main/resources/fabrictweaker.aw")
+    accessWidenerPath = rootProject.file("src/main/resources/accesswideners/$accesswidener")
 
     runConfigs.all {
         ideConfigGenerated(true)
@@ -96,9 +103,9 @@ tasks {
             "id" to project.property("mod.id"),
             "name" to project.property("mod.name"),
             "version" to project.property("mod.version"),
-            "minecraft" to project.property("mod.mc_dep")
+            "minecraft" to project.property("mod.mc_dep"),
+            "aw_file" to accesswidener, // accesswidener
         )
-
         filesMatching("fabric.mod.json") { expand(props) }
 
         val mixinJava = "JAVA_${requiredJava.majorVersion}"
