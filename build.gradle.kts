@@ -2,7 +2,7 @@ plugins {
     id("net.fabricmc.fabric-loom-remap")
 }
 
-version = "${property("mod.version")}+${sc.current.version}"
+version = "${property("mod.version")}-mc${sc.current.version}"
 group = "${property("mod.group")}"
 base.archivesName = property("mod.id") as String
 
