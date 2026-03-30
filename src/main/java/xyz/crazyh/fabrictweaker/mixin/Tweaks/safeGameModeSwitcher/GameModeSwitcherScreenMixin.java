@@ -3,14 +3,21 @@ package xyz.crazyh.fabrictweaker.mixin.Tweaks.safeGameModeSwitcher;
 //? if = 1.21 {
 /*import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
+import net.minecraft.client.gui.screen.GameModeSelectionScreen;
+import net.minecraft.client.gui.screen.GameModeSelectionScreen.GameModeSelection;
 
 *///? }
+
+//? if > 1.21 {
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.GameModeSwitcherScreen;
 import net.minecraft.client.gui.screen.GameModeSwitcherScreen.GameModeSelection;
 import net.minecraft.network.packet.c2s.play.ChangeGameModeC2SPacket;
 import net.minecraft.world.GameMode;
+
+//? }
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

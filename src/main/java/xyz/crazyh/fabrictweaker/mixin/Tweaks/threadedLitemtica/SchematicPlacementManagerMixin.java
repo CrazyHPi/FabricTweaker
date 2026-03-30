@@ -1,5 +1,18 @@
 package xyz.crazyh.fabrictweaker.mixin.Tweaks.threadedLitemtica;
 
+//? if 1.21 {
+/*import fi.dy.masa.litematica.schematic.placement.SchematicPlacement;
+import fi.dy.masa.litematica.util.PasteLayerBehavior;
+import fi.dy.masa.litematica.util.ReplaceBehavior;
+import fi.dy.masa.litematica.util.SchematicPlacingUtils;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Redirect;
+import xyz.crazyh.fabrictweaker.config.FeatureToggle;
+
+*///? }
+
 import fi.dy.masa.litematica.schematic.placement.SchematicPlacementManager;
 import org.spongepowered.asm.mixin.Mixin;
 

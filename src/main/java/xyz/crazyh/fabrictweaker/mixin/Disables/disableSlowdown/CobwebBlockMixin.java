@@ -3,6 +3,7 @@ package xyz.crazyh.fabrictweaker.mixin.Disables.disableSlowdown;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CobwebBlock;
 import net.minecraft.entity.Entity;
+//? if > 1.21
 import net.minecraft.entity.EntityCollisionHandler;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

@@ -17,6 +17,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.packet.c2s.play.ClickSlotC2SPacket;
 import net.minecraft.registry.Registries;
 import net.minecraft.screen.slot.SlotActionType;
+//? if > 1.21
 import net.minecraft.screen.sync.ItemStackHash;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
