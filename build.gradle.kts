@@ -4,7 +4,7 @@ plugins {
 
 version = "${property("mod.version")}-mc${sc.current.version}"
 group = "${property("mod.group")}"
-base.archivesName = property("mod.id") as String
+base.archivesName = property("mod.name") as String
 
 val requiredJava = when {
     sc.current.parsed >= "1.20.5" -> JavaVersion.VERSION_21
@@ -83,19 +83,6 @@ loom {
     }
 }
 
-//processResources {
-//    inputs.property "version", project.version
-//    inputs.property "minecraft_version", project.minecraft_version
-//    inputs.property "loader_version", project.loader_version
-//    filteringCharset "UTF-8"
-//
-//    filesMatching("fabric.mod.json") {
-//        expand "version": project.version,
-//                "minecraft_version": project.minecraft_version,
-//                "loader_version": project.loader_version
-//    }
-//}
-
 tasks {
     processResources {
         inputs.property("id", project.property("mod.id"))
@@ -123,6 +110,14 @@ tasks {
         into(rootProject.layout.buildDirectory.file("libs/${project.property("mod.version")}"))
         dependsOn("build")
     }
+
+    // LICENSE
+    jar {
+        from(rootProject.file("LICENSE")) {
+            rename { fileName -> "${fileName}_${archiveBaseName}" }
+        }
+    }
+
 }
 
 java {
@@ -134,9 +129,3 @@ java {
     // If you remove this line, sources will not be generated.
 //    withSourcesJar()
 }
-
-//jar {
-//    from("LICENSE") {
-//        rename { "${it}_${project.base.archivesName.get()}" }
-//    }
-//}
