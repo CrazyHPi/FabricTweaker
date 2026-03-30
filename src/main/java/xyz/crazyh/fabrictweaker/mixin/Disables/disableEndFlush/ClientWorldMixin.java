@@ -8,6 +8,7 @@ import xyz.crazyh.fabrictweaker.config.DisableToggle;
 
 @Mixin(ClientWorld.class)
 public abstract class ClientWorldMixin {
+    //? if >= 1.21.9{
     @ModifyExpressionValue(
             method = "tick",
             at = @At(
@@ -21,4 +22,6 @@ public abstract class ClientWorldMixin {
         }
         return original;
     }
+
+    //? }
 }

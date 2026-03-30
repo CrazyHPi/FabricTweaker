@@ -16,6 +16,9 @@ public abstract class InGameHudMixin {
     @SuppressWarnings("DataFlowIssue")
     @Unique
     private static final Comparator<ScoreboardEntry> I_WILL_BE_ON_TOP = Comparator
+            //? if = 1.21
+            //.comparing((ScoreboardEntry entry) -> !entry.name().getString().equalsIgnoreCase(MinecraftClient.getInstance().player.getGameProfile().getName()))
+            //? if > 1.21
             .comparing((ScoreboardEntry entry) -> !entry.name().getString().equalsIgnoreCase(MinecraftClient.getInstance().player.getGameProfile().name()))
             .thenComparing(Comparator.comparing(ScoreboardEntry::value).reversed())
             .thenComparing(ScoreboardEntry::owner, String.CASE_INSENSITIVE_ORDER);

@@ -8,6 +8,7 @@ import xyz.crazyh.fabrictweaker.config.DisableToggle;
 
 @Mixin(LightmapTextureManager.class)
 public abstract class LightmapTextureManagerMixin {
+    //? if >= 1.21.9{
     @ModifyExpressionValue(
             method = "update",
             at = @At(
@@ -21,4 +22,6 @@ public abstract class LightmapTextureManagerMixin {
         }
         return original;
     }
+
+    //? }
 }

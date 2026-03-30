@@ -8,6 +8,7 @@ import xyz.crazyh.fabrictweaker.config.DisableToggle;
 
 @Mixin(InGameHud.class)
 public abstract class InGameHudMixin {
+    //? if >= 1.21.6 {
     @ModifyExpressionValue(
             method = "getCurrentBarType",
             at = @At(
@@ -18,4 +19,6 @@ public abstract class InGameHudMixin {
     private boolean shouldShowExperienceBar(boolean original) {
         return DisableToggle.DISABLE_LOCATOR_BAR.getBooleanValue() || original;
     }
+
+    //? }
 }

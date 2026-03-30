@@ -241,6 +241,8 @@ public enum FeatureToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
         this.comment = s;
     }
 
+    //? if > 1.21 {
+
     @Override
     public boolean isDirty() {
         return this.dirty;
@@ -263,6 +265,8 @@ public enum FeatureToggle implements IHotkeyTogglable, IConfigNotifiable<IConfig
             this.onValueChanged();
         }
     }
+
+    //? }
 
     // translation stuff, will not be implemented, nobody gives a fuck
     private static String buildTranslateName(String name, String type) {

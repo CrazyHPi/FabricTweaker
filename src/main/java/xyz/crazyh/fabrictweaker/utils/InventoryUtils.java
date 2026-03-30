@@ -40,7 +40,11 @@ public class InventoryUtils {
             return;
         }
 
+        //? if > 1.21
         DefaultedList<ItemStack> mainInv = player.getInventory().getMainStacks();
+        //? if 1.21
+        //DefaultedList<ItemStack> mainInv = player.getInventory().main;
+
         if (mainInv.isEmpty()) {
             return;
         }
@@ -74,6 +78,7 @@ public class InventoryUtils {
             NbtCompound nbt = new NbtCompound();
             nbt.putDouble("Inv Resync", Double.NaN);
             NbtComponent.set(DataComponentTypes.CUSTOM_DATA, item, nbt);
+            //? if > 1.21
             ItemStackHash itemStackHash = ItemStackHash.fromItemStack(item, networkHandler.getComponentHasher());
 
             networkHandler.sendPacket(new ClickSlotC2SPacket(
@@ -82,8 +87,17 @@ public class InventoryUtils {
                             (short) -999,
                             (byte) 2,
                             SlotActionType.QUICK_CRAFT,
+                            //? if 1.21 {
+                            /*item,
+                            new Int2ObjectOpenHashMap<>()
+
+                            *///? }
+
+                            //? if > 1.21 {
                             new Int2ObjectOpenHashMap<>(),
                             itemStackHash
+                    
+                            //? }
                     )
             );
         }

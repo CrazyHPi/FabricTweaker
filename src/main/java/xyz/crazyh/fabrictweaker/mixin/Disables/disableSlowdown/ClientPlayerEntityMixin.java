@@ -17,6 +17,8 @@ public abstract class ClientPlayerEntityMixin {
                     target = "Lnet/minecraft/client/network/ClientPlayerEntity;isBlockedFromSprinting()Z"
                     //? if 1.21.10
                     //target = "Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z"
+                    //? if 1.21
+                    //target = "Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z"
 
             )
     )
@@ -48,6 +50,8 @@ public abstract class ClientPlayerEntityMixin {
                     //? if 1.21.11
                     target = "Lnet/minecraft/client/network/ClientPlayerEntity;isBlockedFromSprinting()Z"
                     //? if 1.21.10
+                    //target = "Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z"
+                    //? if 1.21
                     //target = "Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z"
             )
     )

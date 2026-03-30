@@ -21,6 +21,9 @@ public abstract class KeyboardInputMixin {
         if (player == null) {
             return;
         }
+        //? if = 1.21
+        //if (player.input.jumping && BlockUtils.isNearFence(player)) {
+        //? if > 1.21
         if (player.input.playerInput.jump() && BlockUtils.isNearFence(player)) {
             player.setVelocity(player.getVelocity().add(0.0D, 0.05D, 0.0D));
         }

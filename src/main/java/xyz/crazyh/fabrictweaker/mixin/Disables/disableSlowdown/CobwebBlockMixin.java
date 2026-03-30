@@ -22,7 +22,10 @@ public abstract class CobwebBlockMixin {
             ),
             cancellable = true
     )
+    //? if > 1.21
     private void cobwebNoSlowdown(BlockState state, World world, BlockPos pos, Entity entity, EntityCollisionHandler handler, boolean bl, CallbackInfo ci) {
+    //? if = 1.21
+    //private void cobwebNoSlowdown(BlockState state, World world, BlockPos pos, Entity entity, CallbackInfo ci) {
         if (DisableToggle.DISABLE_PLAYER_SLOWDOWN.getBooleanValue()) {
             ci.cancel();
         }

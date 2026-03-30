@@ -4,13 +4,15 @@ import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import net.minecraft.client.network.ClientPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import xyz.crazyh.fabrictweaker.config.DisableToggle;
 
 @Mixin(ClientPlayerEntity.class)
 public abstract class ClientPlayerEntityMixin {
     @ModifyExpressionValue(
+            //? if > 1.21
             method = "applyMovementSpeedFactors",
+            //? if = 1.21
+            //method = "tickMovement",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/client/network/ClientPlayerEntity;shouldSlowDown()Z"
