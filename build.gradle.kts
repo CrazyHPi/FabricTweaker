@@ -19,10 +19,16 @@ repositories {
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
+
+    // https://masa.dy.fi/maven/sakura-ryoko/fi/dy/masa/
     maven("https://masa.dy.fi/maven/sakura-ryoko") // sakura-ryoko's fork maven
+    // https://masa.dy.fi/maven/fi/dy/masa/
     maven("https://masa.dy.fi/maven") // masa's maven
+
     maven("https://maven.terraformersmc.com/releases") //mod menu
+
     maven("https://maven.fallenbreath.me/releases") // conditional mixin
+
 //    maven ("https://jitpack.io") // jitpack, ppl not used
 }
 
@@ -53,9 +59,7 @@ dependencies {
     // litematica
     modImplementation("fi.dy.masa.litematica:litematica-fabric-${property("minecraft_version")}:${property("litematica_version")}")
     // minihud
-    if (sc.current.parsed > "1.21") {
-        modImplementation("fi.dy.masa.minihud:minihud-fabric-${property("minecraft_version")}:${property("minihud_version")}")
-    }
+    modImplementation("fi.dy.masa.minihud:minihud-fabric-${property("minecraft_version")}:${property("minihud_version")}")
     // tweakeroo for compact test
     modRuntimeOnly("fi.dy.masa.tweakeroo:tweakeroo-fabric-${property("minecraft_version")}:${property("tweakeroo_version")}")
 
