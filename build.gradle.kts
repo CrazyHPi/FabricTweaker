@@ -113,8 +113,10 @@ tasks {
 
     // LICENSE
     jar {
+        val name = archiveBaseName
+
         from(rootProject.file("LICENSE")) {
-            rename { fileName -> "${fileName}_${archiveBaseName}" }
+            rename { fileName -> "${fileName}_${name}" }
         }
     }
 

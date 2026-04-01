@@ -3,9 +3,7 @@ name: Java CI
 on:
   push:
     branches:
-      - 1.21
-      - 1.20.2
-      - 1.21.10
+      - multi
 
 jobs:
   build:
@@ -22,7 +20,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ./gradlew buildAndCollect
       - uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
