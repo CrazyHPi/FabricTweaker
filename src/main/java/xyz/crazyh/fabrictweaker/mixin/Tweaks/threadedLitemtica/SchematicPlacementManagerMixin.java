@@ -25,7 +25,8 @@ public abstract class SchematicPlacementManagerMixin {
             at = @At(
                     value = "INVOKE",
                     target = "Lfi/dy/masa/litematica/util/SchematicPlacingUtils;placeToWorldWithinChunk(Lnet/minecraft/world/World;Lnet/minecraft/util/math/ChunkPos;Lfi/dy/masa/litematica/schematic/placement/SchematicPlacement;Lfi/dy/masa/litematica/util/ReplaceBehavior;Lfi/dy/masa/litematica/util/PasteLayerBehavior;Z)Z"
-            )
+            ),
+            remap = false
     )
     private boolean threadedUpdate(
             World blockEntityMap,
