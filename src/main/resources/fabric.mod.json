@@ -3,7 +3,7 @@
   "id": "fabrictweaker",
   "version": "${version}",
   "name": "FabricTweaker",
-  "description": "A client-side tweak mod that adds some useful feature to 1.20.2 client.",
+  "description": "A client-side tweak mod that adds some useful feature to ${minecraft_version} client.",
   "authors": [
     "Crazy_H"
   ],
