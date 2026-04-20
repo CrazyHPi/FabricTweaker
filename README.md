@@ -10,19 +10,14 @@ Press `END` to open the config menu.
 
 ### Dependency
 
-For `1.21` version of the mod, it depends on certain version on [masa's mod](https://masa.dy.fi/mcmods/client_mods/):
+Masa mod dependencies by Minecraft version 
 
-* malilib: `0.20.0`
-* litematica: `0.19.3-sakura.2`
-* ~~minihud~~: maybe not?
-* tweakeroo: `0.21.1-sakura.1`
+| Minecraft | malilib   | litematica | tweakeroo | minihud   |
+|-----------|-----------|------------|-----------|-----------|
+| `1.21`    | `0.21.10` | `0.19.60`  | `0.21.61` | `0.32.60` |
+| `1.21.10` | `0.26.8`  | `0.24.7`   | `0.26.5`  | `0.37.6`  |
+| `1.21.11` | `0.27.7`  | `0.26.2`   | `0.27.6`  | `0.38.5`  |
 
 ## Supported Version
 
-Currently only Minecraft `1.21` is being maintained (because I'm playing this version from time to time.
-
-Minecraft `1.20.1` & `1.20.2` is working but no longer updated, will update depends on situation. 
-
-## Feature List
-
-TODO
+Currently, supporting `1.21`, `1.21.10`, `1.21.11` with same feature set.
