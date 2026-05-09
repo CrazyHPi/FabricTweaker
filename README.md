@@ -21,3 +21,4 @@ Masa mod dependencies by Minecraft version
 ## Supported Version
 
 Currently, supporting `1.21`, `1.21.10`, `1.21.11` with same feature set.
+
