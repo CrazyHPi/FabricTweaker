@@ -1,5 +1,6 @@
 plugins {
     id("net.fabricmc.fabric-loom-remap")
+//    id("dev.kikugie.loom-back-compat")
 }
 
 version = "${property("mod.version")}-mc${sc.current.version}"
@@ -7,6 +8,7 @@ group = "${property("mod.group")}"
 base.archivesName = property("mod.name") as String
 
 val requiredJava = when {
+    sc.current.parsed >= "26.1" -> JavaVersion.VERSION_25
     sc.current.parsed >= "1.20.5" -> JavaVersion.VERSION_21
     sc.current.parsed >= "1.18" -> JavaVersion.VERSION_17
     sc.current.parsed >= "1.17" -> JavaVersion.VERSION_16
@@ -29,13 +31,20 @@ repositories {
 
     maven("https://maven.fallenbreath.me/releases") // conditional mixin
 
+    //https://github.com/RelativityMC/yarn
+    maven("https://repo.codemc.io/repository/relativitymc/") // Modern Yarn
+
 //    maven ("https://jitpack.io") // jitpack, ppl not used
 }
 
 dependencies {
     // To change the versions see the gradle.properties file
     minecraft("com.mojang:minecraft:${sc.current.version}")
-    mappings("net.fabricmc:yarn:${property("yarn_mappings")}:v2")
+    if (sc.current.version >= "26.1") {
+        mappings("org.relativitymc:modern-yarn:${property("yarn_mappings")}:v2")
+    } else {
+        mappings("net.fabricmc:yarn:${property("yarn_mappings")}:v2")
+    }
     modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
 
     // mod menu
@@ -73,8 +82,18 @@ val accesswidener = when {
 }
 
 loom {
+    if (sc.current.parsed >= "26.1") {
+        useIntermediateMappings = true
+        intermediaryUrl =
+            $$"https://repo.codemc.io/repository/relativitymc/org/relativitymc/intermediary/%1$s/intermediary-%1$s-v2.jar"
+    }
+
 //    fabricModJsonPath = rootProject.file("src/main/resources/fabric.mod.json")
     accessWidenerPath = rootProject.file("src/main/resources/accesswideners/$accesswidener")
+
+    decompilerOptions.named("vineflower") {
+        options.put("mark-corresponding-synthetics", "1") // Adds names to lambdas - useful for mixins
+    }
 
     runConfigs.all {
         ideConfigGenerated(true)
