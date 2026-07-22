@@ -13,13 +13,10 @@ public abstract class ClientPlayerEntityMixin {
             method = "tickMovement",
             at = @At(
                     value = "INVOKE",
-                    //? if 1.21.11
+                    //? if >= 1.21.11
                     target = "Lnet/minecraft/client/network/ClientPlayerEntity;isBlockedFromSprinting()Z"
-                    //? if 1.21.10
+                    //? if <= 1.21.10
                     //target = "Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z"
-                    //? if 1.21
-                    //target = "Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z"
-
             )
     )
     private boolean noUseItemSlowdown(boolean original) {
@@ -47,11 +44,9 @@ public abstract class ClientPlayerEntityMixin {
             method = "canStartSprinting",
             at = @At(
                     value = "INVOKE",
-                    //? if 1.21.11
+                    //? if >= 1.21.11
                     target = "Lnet/minecraft/client/network/ClientPlayerEntity;isBlockedFromSprinting()Z"
-                    //? if 1.21.10
-                    //target = "Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z"
-                    //? if 1.21
+                    //? if <= 1.21.10
                     //target = "Lnet/minecraft/client/network/ClientPlayerEntity;isUsingItem()Z"
             )
     )

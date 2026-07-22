@@ -43,7 +43,10 @@ public abstract class WorldUtilsMixin {
             method = "doEasyPlaceAction",
             at = @At(
                     value = "INVOKE",
-                    target = "Lfi/dy/masa/litematica/util/WorldUtils;placementRestrictionInEffect(Lnet/minecraft/client/MinecraftClient;)Z",
+                    //? if 26.2
+                    target = "Lfi/dy/masa/litematica/util/EasyPlaceUtils;placementRestrictionInEffect(Lnet/minecraft/client/MinecraftClient;)Z",
+                    //? if < 26.2
+                    //target = "Lfi/dy/masa/litematica/util/WorldUtils;placementRestrictionInEffect(Lnet/minecraft/client/MinecraftClient;)Z",
                     ordinal = 1
             ),
             cancellable = true

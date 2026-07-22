@@ -34,7 +34,10 @@ public class InventoryUtils {
         ClientPlayerEntity player = mc.player;
         ClientPlayerInteractionManager interactionManager = mc.interactionManager;
 
-        if (mc.currentScreen instanceof InventoryScreen) {
+        //? if 26.2
+        if (mc.guiManager.getCurrentScreen() instanceof InventoryScreen) {
+        //? if < 26.2
+        //if (mc.currentScreen instanceof InventoryScreen) {
             return;
         }
         if (player == null || interactionManager == null) {

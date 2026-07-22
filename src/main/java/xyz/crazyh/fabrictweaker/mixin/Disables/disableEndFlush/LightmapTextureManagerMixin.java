@@ -10,7 +10,10 @@ import xyz.crazyh.fabrictweaker.config.DisableToggle;
 public abstract class LightmapTextureManagerMixin {
     //? if >= 1.21.9{
     @ModifyExpressionValue(
-            method = "update",
+            //? if 26.2
+            method = "prepareRender",
+            //? if < 26.2
+            //method = "update",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/client/render/EndLightFlashManager;getSkyFactor(F)F"

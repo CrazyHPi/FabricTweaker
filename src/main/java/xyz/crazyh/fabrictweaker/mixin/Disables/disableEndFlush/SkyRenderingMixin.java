@@ -1,7 +1,9 @@
 package xyz.crazyh.fabrictweaker.mixin.Disables.disableEndFlush;
 
-//? if >= 1.21.9
-import net.minecraft.client.render.SkyRendering;
+//? if 26.2
+import net.minecraft.client.render.SkyRenderer;
+//? if >= 1.21.9 < 26.2
+//import net.minecraft.client.render.SkyRendering;
 import net.minecraft.client.util.math.MatrixStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -12,8 +14,10 @@ import xyz.crazyh.fabrictweaker.config.DisableToggle;
 //? if = 1.21
 //import xyz.crazyh.fabrictweaker.FabricTweaker;
 
-//? if >= 1.21.9
-@Mixin(SkyRendering.class)
+//? if 26.2
+@Mixin(SkyRenderer.class)
+//? if >= 1.21.9 < 26.2
+//@Mixin(SkyRendering.class)
 //? if = 1.21
 //@Mixin(FabricTweaker.class) // dummy mixin i guess
 public abstract class SkyRenderingMixin {

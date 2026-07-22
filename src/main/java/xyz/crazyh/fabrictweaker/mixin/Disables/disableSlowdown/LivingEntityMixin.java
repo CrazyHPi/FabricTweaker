@@ -24,7 +24,7 @@ public abstract class LivingEntityMixin extends Entity {
 
     @SuppressWarnings("ConstantConditions")
     @ModifyExpressionValue(
-            //? if 1.21.11
+            //? if >= 1.21.11
             method = "travelInWater",
             //? if 1.21.10
             //method = "travelInFluid",
@@ -63,7 +63,7 @@ public abstract class LivingEntityMixin extends Entity {
 
     @SuppressWarnings("ConstantConditions")
     @ModifyConstant(
-            //? if 1.21.11
+            //? if >= 1.21.11
             method = "travelInWater",
             //? if 1.21.10
             //method = "travelInFluid",

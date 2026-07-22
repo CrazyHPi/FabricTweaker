@@ -9,7 +9,10 @@ import xyz.crazyh.fabrictweaker.config.Configs;
 @Mixin(WorldRenderer.class)
 public abstract class WorldRendererMixin {
     @ModifyExpressionValue(
-            method = "render",
+            //? if 26.2
+            method = "rebuildChunks",
+            //? if < 26.2
+            //method = "render",
             at = @At(
                     value = "INVOKE",
                     target = "Lnet/minecraft/client/option/GameOptions;getClampedViewDistance()I"

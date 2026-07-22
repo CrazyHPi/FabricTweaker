@@ -17,7 +17,10 @@ import java.util.Set;
 
 public class RandomUtils {
     public static final Set<Item> SHULKER_BOX = Set.of(
-            Items.SHULKER_BOX,
+            Items.SHULKER_BOX
+
+            //? if < 26.2 {
+            /*,
             Items.WHITE_SHULKER_BOX,
             Items.ORANGE_SHULKER_BOX,
             Items.MAGENTA_SHULKER_BOX,
@@ -34,11 +37,15 @@ public class RandomUtils {
             Items.GREEN_SHULKER_BOX,
             Items.RED_SHULKER_BOX,
             Items.BLACK_SHULKER_BOX
+
+            *///? }
     );
 
     public static final Set<Item> FALLING_BLOCKS = Set.of(
             // all concrete powder + sand + gravel
-            Items.WHITE_CONCRETE_POWDER,
+            
+            //? if < 26.2 {
+            /*Items.WHITE_CONCRETE_POWDER,
             Items.ORANGE_CONCRETE_POWDER,
             Items.MAGENTA_CONCRETE_POWDER,
             Items.LIGHT_BLUE_CONCRETE_POWDER,
@@ -54,6 +61,9 @@ public class RandomUtils {
             Items.GREEN_CONCRETE_POWDER,
             Items.RED_CONCRETE_POWDER,
             Items.BLACK_CONCRETE_POWDER,
+
+            *///? }
+
             Items.SAND,
             Items.GRAVEL
     );
@@ -67,7 +77,10 @@ public class RandomUtils {
         if (Configs.General.SEND_COORDS_TO_PUBLIC_CHAT.getBooleanValue()) {
             networkHandler.sendChatMessage(coords);
         } else {
-            player.sendMessage(Text.literal(coords), false);
+            //? if 26.2
+            client.guiManager.getMessageHandler().onGameMessage(Text.literal(coords), false);
+            //? if < 26.2
+            //player.sendMessage(Text.literal(coords), false);
         }
     }
 

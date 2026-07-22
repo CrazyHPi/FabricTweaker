@@ -8,7 +8,10 @@ import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.IConfigHandler;
 import fi.dy.masa.malilib.config.options.*;
 import fi.dy.masa.malilib.util.FileUtils;
-import fi.dy.masa.malilib.util.JsonUtils;
+//? if 26.2
+import fi.dy.masa.malilib.util.data.json.JsonUtils;
+//? if < 26.2
+//import fi.dy.masa.malilib.util.JsonUtils;
 import fi.dy.masa.malilib.util.restrictions.UsageRestriction;
 import xyz.crazyh.fabrictweaker.Reference;
 import xyz.crazyh.fabrictweaker.utils.BlockUtils;
@@ -72,9 +75,15 @@ public class Configs implements IConfigHandler {
     }
 
     public static void loadFromFile() {
-        Path configFile = FileUtils.getConfigDirectoryAsPath().resolve(CONFIG_FILE_NAME);
+        //? if 26.2
+        Path configFile = FileUtils.getConfigDirectory().resolve(CONFIG_FILE_NAME);
+        //? if < 26.2
+        //Path configFile = FileUtils.getConfigDirectoryAsPath().resolve(CONFIG_FILE_NAME);
         if (Files.exists(configFile) && Files.isReadable(configFile)) {
-            JsonElement element = JsonUtils.parseJsonFileAsPath(configFile);
+            //? if 26.2
+            JsonElement element = JsonUtils.parseJsonFile(configFile);
+            //? if < 26.2
+            //JsonElement element = JsonUtils.parseJsonFileAsPath(configFile);
 
             if (element != null && element.isJsonObject()) {
                 JsonObject root = element.getAsJsonObject();
@@ -107,7 +116,10 @@ public class Configs implements IConfigHandler {
     }
 
     public static void saveToFile() {
-        Path dir = FileUtils.getConfigDirectoryAsPath();
+        //? if 26.2
+        Path dir = FileUtils.getConfigDirectory();
+        //? if < 26.2
+        //Path dir = FileUtils.getConfigDirectoryAsPath();
         if (!Files.exists(dir)) {
             FileUtils.createDirectoriesIfMissing(dir);
         }
@@ -121,7 +133,10 @@ public class Configs implements IConfigHandler {
             ConfigUtils.writeHotkeyToggleOptions(root, "TweakHotkeys", "Tweaks", FeatureToggle.VALUES);
             ConfigUtils.writeHotkeyToggleOptions(root, "DisableHotkeys", "Disables", DisableToggle.VALUES);
 
-            JsonUtils.writeJsonToFileAsPath(root, dir.resolve(CONFIG_FILE_NAME));
+            //? if 26.2
+            JsonUtils.writeJsonToFile(root, dir.resolve(CONFIG_FILE_NAME));
+            //? if < 26.2
+            //JsonUtils.writeJsonToFileAsPath(root, dir.resolve(CONFIG_FILE_NAME));
         }
     }
 
