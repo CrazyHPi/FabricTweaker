@@ -77,6 +77,7 @@ dependencies {
 val accesswidener = when {
     sc.eval(sc.current.version, "1.21") -> "1.21.aw"
     sc.eval(sc.current.version, ">=1.21.10") -> "1.21.10.aw"
+    sc.eval(sc.current.version, "26.2") -> "26.2.aw"
 
     else -> "empty.aw"
 }
@@ -96,9 +97,13 @@ loom {
     }
 
     runConfigs.all {
-        ideConfigGenerated(true)
-        vmArgs("-Dmixin.debug.export=true") // Exports transformed classes for debugging
-        runDir = "../../run" // Shares the run directory between versions
+        preferGradleTask = true
+        generateRunConfig = true
+        runDirectory = rootProject.file("run") // Shares the run directory between versions
+        jvmArguments.add("-Dmixin.debug.export=true") // Exports transformed classes for debugging
+
+        programArguments.add("--username=Crazy_H")
+        programArguments.addAll("--width=1600", "--height=900")
     }
 }
 
@@ -124,6 +129,14 @@ tasks {
     // Builds the version into a shared folder in `build/libs/${mod version}/`
     register<Copy>("buildAndCollect") {
         group = "build"
+
+        // for loomx
+
+//        inputs.property("version", project.property("mod.version"))
+//        // loomx.mod(Sources)Jar returns the jar task for the applied loom variant
+//        from(loomx.modJar.flatMap { it.archiveFile }, loomx.modSourcesJar.flatMap { it.archiveFile })
+//        into(rootProject.layout.buildDirectory.file("libs/${project.property("mod.version")}"))
+
         from(remapJar.map { it.archiveFile }, remapSourcesJar.map { it.archiveFile })
         into(rootProject.layout.buildDirectory.file("libs/${project.property("mod.version")}"))
         dependsOn("build")
