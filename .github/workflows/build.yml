@@ -25,7 +25,11 @@ jobs:
           echo "Commit: ${{ github.sha }}"
           echo "Build Time: $(date '+%Y-%m-%d %H:%M:%S')"
           ./gradlew buildAndCollect
+      - name: Set artifact name
+        id: artifact-name
+        run: echo "name=FabricTweaker-$(git rev-parse --short HEAD)-$(date +%Y-%m-%d)" >> $GITHUB_OUTPUT
+
       - uses: actions/upload-artifact@v4
         with:
-          name: "FabricTweaker-${{ github.sha | slice: 0, 7 }}-${{ github.event.head_commit.timestamp | slice: 0, 10 }}"
+          name: ${{ steps.artifact-name.outputs.name }}
           path: build/libs/
