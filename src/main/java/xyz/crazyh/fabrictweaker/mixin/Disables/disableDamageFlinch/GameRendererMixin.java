@@ -1,6 +1,7 @@
 package xyz.crazyh.fabrictweaker.mixin.Disables.disableDamageFlinch;
 
 import net.minecraft.client.render.GameRenderer;
+//? if 26.2
 import net.minecraft.client.render.state.CameraRenderState;
 import net.minecraft.client.util.math.MatrixStack;
 import org.spongepowered.asm.mixin.Mixin;
